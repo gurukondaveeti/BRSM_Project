@@ -70,22 +70,21 @@ Condition: Single_Lab | Metric: Mean_RT
 Condition: Multiple_Phone | Metric: Mean_RT
 ============================================================
   N = 16
-  Q1 = 1614.82, Q3 = 2175.25, IQR = 560.43
-  Lower Fence (1.5×IQR): 774.17
-  Upper Fence (1.5×IQR): 3015.90
+  Q1 = 1080.78, Q3 = 1300.69, IQR = 219.91
+  Lower Fence (1.5×IQR): 750.92
+  Upper Fence (1.5×IQR): 1630.55
   Outliers found: 1
-    -> Participant 24: 3120.42
+    -> Participant 24: 1815.12
 
 ============================================================
 Condition: Multiple_Lab | Metric: Mean_RT
 ============================================================
   N = 16
-  Q1 = 5880.63, Q3 = 6884.86, IQR = 1004.23
-  Lower Fence (1.5×IQR): 4374.29
-  Upper Fence (1.5×IQR): 8391.20
-  Outliers found: 2
-    -> Participant 32: 3055.45
-    -> Participant 37: 10606.51
+  Q1 = 1223.61, Q3 = 1378.99, IQR = 155.38
+  Lower Fence (1.5×IQR): 990.53
+  Upper Fence (1.5×IQR): 1612.06
+  Outliers found: 1
+    -> Participant 37: 2087.38
 
 
 ############################################################
@@ -156,9 +155,9 @@ Condition: Single_Lab | Metric: Mean_RT
 Condition: Multiple_Phone | Metric: Mean_RT
 ============================================================
   N = 16
-  Q1 = 1614.82, Q3 = 2175.25, IQR = 560.43
-  Lower Fence (3.0×IQR): -66.48
-  Upper Fence (3.0×IQR): 3856.55
+  Q1 = 1080.78, Q3 = 1300.69, IQR = 219.91
+  Lower Fence (3.0×IQR): 421.06
+  Upper Fence (3.0×IQR): 1960.42
   Outliers found: 0
     -> No outliers detected
 
@@ -166,11 +165,11 @@ Condition: Multiple_Phone | Metric: Mean_RT
 Condition: Multiple_Lab | Metric: Mean_RT
 ============================================================
   N = 16
-  Q1 = 5880.63, Q3 = 6884.86, IQR = 1004.23
-  Lower Fence (3.0×IQR): 2867.95
-  Upper Fence (3.0×IQR): 9897.54
+  Q1 = 1223.61, Q3 = 1378.99, IQR = 155.38
+  Lower Fence (3.0×IQR): 757.46
+  Upper Fence (3.0×IQR): 1845.14
   Outliers found: 1
-    -> Participant 37: 10606.51
+    -> Participant 37: 2087.38
 
 
 ############################################################
@@ -186,7 +185,7 @@ Strategy: Conservative approach due to small sample sizes (N=16-21)
 
   REMOVING: Participant 1 from Single_Lab (extreme outlier in Mean_RT: 2331.35)
 
-  REMOVING: Participant 37 from Multiple_Lab (extreme outlier in Mean_RT: 10606.51)
+  REMOVING: Participant 37 from Multiple_Lab (extreme outlier in Mean_RT: 2087.38)
 
   Original data points: 74
   After cleaning: 71

@@ -50,17 +50,17 @@ NORMALITY TESTS FOR: Reaction Time (ms)
     *** RESULT: Data IS normally distributed (p > 0.05) ***
 
   Multiple_Phone:
-    N = 16, Mean = 1856.46, SD = 507.28
-    Skewness = 0.8737 (Moderately Positive Skew)
-    Kurtosis = 0.5974
-    Shapiro-Wilk: W = 0.9262, p = 0.2124
+    N = 16, Mean = 1191.45, SD = 236.89
+    Skewness = 0.7032 (Moderately Positive Skew)
+    Kurtosis = 1.3269
+    Shapiro-Wilk: W = 0.9076, p = 0.1066
     *** RESULT: Data IS normally distributed (p > 0.05) ***
 
   Multiple_Lab:
-    N = 14, Mean = 6413.51, SD = 590.74
-    Skewness = -0.1863 (Approximately Symmetric)
-    Kurtosis = -0.6993
-    Shapiro-Wilk: W = 0.9625, p = 0.7638
+    N = 14, Mean = 1304.21, SD = 101.44
+    Skewness = 0.0407 (Approximately Symmetric)
+    Kurtosis = -1.1652
+    Shapiro-Wilk: W = 0.9479, p = 0.5280
     *** RESULT: Data IS normally distributed (p > 0.05) ***
 
 
@@ -75,8 +75,8 @@ Multiple_Phone_Mean_Accuracy 16   96.372026   2.533978 -0.247945 -0.606786   0.9
   Multiple_Lab_Mean_Accuracy 14   98.285714   2.476754 -1.435031  1.009372   0.749046   0.001250      False Substantially Negative Skew
         Single_Phone_Mean_RT 21 2957.554876 520.819635  0.471771 -0.737897   0.946106   0.286950       True     Approximately Symmetric
           Single_Lab_Mean_RT 20 1527.113102 162.707068  0.049563  0.198981   0.976621   0.883458       True     Approximately Symmetric
-      Multiple_Phone_Mean_RT 16 1856.455654 507.279711  0.873699  0.597371   0.926242   0.212423       True    Moderately Positive Skew
-        Multiple_Lab_Mean_RT 14 6413.513097 590.744095 -0.186309 -0.699281   0.962492   0.763837       True     Approximately Symmetric
+      Multiple_Phone_Mean_RT 16 1191.446641 236.892782  0.703196  1.326939   0.907633   0.106585       True    Moderately Positive Skew
+        Multiple_Lab_Mean_RT 14 1304.210378 101.438168  0.040682 -1.165184   0.947860   0.528008       True     Approximately Symmetric
 
 
 ============================================================

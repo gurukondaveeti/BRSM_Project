@@ -46,13 +46,13 @@ Single_Lab - Reaction Time (ms)
 ============================================================
 Multiple_Phone - Reaction Time (ms)
 ============================================================
-  Original: Skewness = 0.8737 (Moderately Positive Skew), Shapiro-Wilk p = 0.2124
+  Original: Skewness = 0.7032 (Moderately Positive Skew), Shapiro-Wilk p = 0.1066
   *** ALREADY NORMAL - No transformation needed ***
 
 ============================================================
 Multiple_Lab - Reaction Time (ms)
 ============================================================
-  Original: Skewness = -0.1863 (Approximately Symmetric), Shapiro-Wilk p = 0.7638
+  Original: Skewness = 0.0407 (Approximately Symmetric), Shapiro-Wilk p = 0.5280
   *** ALREADY NORMAL - No transformation needed ***
 
 
@@ -67,8 +67,8 @@ Multiple_Phone Mean_Accuracy          -0.247945       0.698110             True 
   Multiple_Lab Mean_Accuracy          -1.435031       0.001250            False     log10(101.00 - x)          0.006832               False              0.630352
   Single_Phone       Mean_RT           0.471771       0.286950             True None (already normal)          0.286950                True              0.471771
     Single_Lab       Mean_RT           0.049563       0.883458             True None (already normal)          0.883458                True              0.049563
-Multiple_Phone       Mean_RT           0.873699       0.212423             True None (already normal)          0.212423                True              0.873699
-  Multiple_Lab       Mean_RT          -0.186309       0.763837             True None (already normal)          0.763837                True             -0.186309
+Multiple_Phone       Mean_RT           0.703196       0.106585             True None (already normal)          0.106585                True              0.703196
+  Multiple_Lab       Mean_RT           0.040682       0.528008             True None (already normal)          0.528008                True              0.040682
 
 
 OVERALL RESULTS:
