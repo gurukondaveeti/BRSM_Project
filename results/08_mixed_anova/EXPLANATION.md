@@ -1,17 +1,31 @@
-# 2x2 Mixed Factorial ANOVA Explanation
+# RQ2 & RQ3: 2x2 Mixed Factorial ANOVA
 
-## Overview
-This folder investigates both **RQ2 (Target Load)** and **RQ3 (Modality)** simultaneously for Reaction Time. It evaluates the "Main Effects" of each variable, and critically, the "Interaction Effect" between them.
+## 1. What Statistical Tests Are In Here?
+- **2x2 Mixed Factorial ANOVA:** This is a single, massive parametric test. It takes all the Reaction Time data and tests three things at once: 
+    1. The effect of Target Load (1 vs 5)
+    2. The effect of Modality (Game vs Lab)
+    3. The Interaction (how Load and Modality affect each other)
 
-## The Plot Explained
+## 2. Which Plot is for Which Test?
 ### `plot_interaction_rt.png`
-This line graph is the most important plot in a Factorial ANOVA.
-- **X-Axis:** The Interface Modality (Phone/Game on the left, Lab on the right).
-- **The Blue Line:** The group searching for a Single Target.
-- **The Red Line:** The group searching for Multiple Targets.
-- **Understanding Interaction:** If the two lines were perfectly parallel, there is NO interaction. However, look at the plot! The Blue line steeply slopes downward from Phone to Lab, while the Red line tilts slightly UPWARD. **Because the lines cross or drastically alter their angle relative to each other, a massive Interaction Effect has occurred.**
+This plot specifically visualizes the **Interaction Effect** of the 2x2 Mixed ANOVA test.
+- The Blue Line tracks Reaction Time for people who only had 1 target.
+- The Red Line tracks Reaction time for people who had 5 targets.
 
-## Key Outcomes (All Highly Significant, p < .0001)
-1.  **Main Effect of Target Load:** The number of targets heavily alters average target processing time. 
-2.  **Main Effect of Modality:** Gamifying the interface heavily alters the absolute reaction time.
-3.  **The Interaction Effect:** Gamification does not just "make people faster" or "make people slower". Instead, Gamification affects you differently *depending on how hard the task is*. When there is 1 target, the Game is vastly slower than the Lab. But when there are 5 targets, the Game is actually slightly faster/more efficient per-target than the Lab! Gamification seems to help process high visual loads better than low visual loads.
+## 3. The Results & Why They Are Significant
+*The scientific threshold for statistical significance is **alpha ($\alpha$) = 0.05**. If our $p$-value is **LESS THAN 0.05**, we declare it "Significant".*
+
+**A. Main Effect of Target Load**
+*   **Exact Value:** $p = 0.0000$ (Mathematically, $p = 1.33 \times 10^{-12}$)
+*   **Is it significant?** YES. Since 0.0000 < 0.05, it is highly significant. 
+*   **Outcome:** Making a human search for 5 targets physically changes their average search time compared to searching for 1 target.
+
+**B. Main Effect of Modality (Game vs Lab interface)**
+*   **Exact Value:** $p = 0.0000$ (Mathematically, $p = 1.08 \times 10^{-12}$)
+*   **Is it significant?** YES. Since 0.0000 < 0.05, it is highly significant. 
+*   **Outcome:** A gamified interface causes drastically different reaction times than a sterile, boring lab interface.
+
+**C. Interaction Effect (Load $\times$ Modality)**
+*   **Exact Value:** $p = 0.0000$ (Mathematically, $p = 5.29 \times 10^{-12}$)
+*   **Is it significant?** YES! Since 0.0000 < 0.05, it is highly significant. 
+*   **Outcome:** The effect of Gamification completely changes depending on how hard the level is (how many targets there are) which is called a **Crossover Interaction**. Gamification slows you down on easy tasks, but equals out or slightly speeds you up on complex tasks.

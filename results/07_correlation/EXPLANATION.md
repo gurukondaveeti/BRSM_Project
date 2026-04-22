@@ -1,17 +1,34 @@
-# Correlation Analysis (Concurrent Validity) Explanation
+# RQ1: Concurrent Validity (Correlation Analysis)
 
-## Overview
-This folder investigates **Research Question 1 (RQ1):** *Is there a significant positive correlation between performance in the Game and the Lab Task?*
-Concurrent validity evaluates whether your new testing tool (the Game) measures the exact same cognitive constructs as the established gold-standard tool (the Lab task).
+## 1. What Statistical Tests Are In Here?
+- **Pearson's r Correlation:** Used for Reaction Time (because the RT data was normally distributed).
+- **Spearman's Rho Correlation:** Used for Accuracy (because the Accuracy data had a ceiling effect and was not normally distributed).
 
-## The Plot Explained
+## 2. Which Plot is for Which Test?
 ### `plot_correlation_scatter.png`
-This image holds four scatter plots mapping how a participant scored on the Game (X-axis) versus how they scored on the Lab Task (Y-axis).
-- **The Dots:** Each dot represents a single human participant. 
-- **The Red Dashed Line:** This is the regression trend line (line of best fit). If Concurrent Validity was perfectly proven, this line would go diagonally sharply from the bottom-left to the top-right.
-- **The Findings:** As you can see, the dots are scattered almost randomly. The line is relatively flat. 
+This image contains 4 scatter plots visualizing the correlation tests.
+- **Top Left Plot:** Visualizes the `Pearson` test for Single-Target Reaction Time.
+- **Top Right Plot:** Visualizes the `Spearman` test for Single-Target Accuracy.
+- **Bottom Left Plot:** Visualizes the `Pearson` test for Multi-Target Reaction Time.
+- **Bottom Right Plot:** Visualizes the `Spearman` test for Multi-Target Accuracy.
 
-## Key Outcomes
-*   **Reaction Time (Pearson's r):** Neither the Single Targets (p = 0.12) nor the Multiple Targets (p = 0.32) showed a significant relationship. 
-*   **Accuracy (Spearman's rho):** Not significant for Multiple Targets (p = 0.65). It could not be computed for Single targets because everyone scored 100% in the lab.
-*   **Conclusion:** Your gamified interface is **not** strongly correlated with the Lab task at an individual level. While this fails Concurrent Validity, it is a fascinating research outcome! It suggests the "Game" is capturing a highly unique cognitive variance—perhaps measuring 'sustained engagement' or 'gamified motivation'—rather than pure, isolated visual search physics like the Lab task does.
+## 3. The Results & Why They Are (Or Aren't) Significant
+*The scientific threshold for statistical significance is **alpha ($\alpha$) = 0.05**. If our $p$-value is **LESS THAN 0.05**, we declare it "Significant". If it is greater than 0.05, it is "Not Significant".*
+
+**A. Single Target Reaction Time (Pearson)**
+*   **Exact Value:** $p = 0.1219$
+*   **Is it significant?** NO. Since 0.1219 > 0.05, it is NOT significant. 
+*   **Outcome:** Human speed in the Game is not mathematically correlated to human speed in the Lab.
+
+**B. Multiple Target Reaction Time (Pearson)**
+*   **Exact Value:** $p = 0.3282$
+*   **Is it significant?** NO. Since 0.3282 > 0.05, it is NOT significant.
+
+**C. Multiple Target Accuracy (Spearman)**
+*   **Exact Value:** $p = 0.6522$
+*   **Is it significant?** NO. Since 0.6522 > 0.05, it is NOT significant. 
+
+*(Note: Single Target Accuracy could not be calculated because 100% of humans scored 100% in the lab, leaving 0 variance).*
+
+**Overall Scientific Outcome:** 
+Because $p > 0.05$ for every single test in this folder, Concurrent Validity fails. Measuring human performance via a "Game" naturally captures completely different, unique traits than measuring them via a standard "Lab task", even when the target load matches exactly!

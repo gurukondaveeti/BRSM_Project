@@ -1,16 +1,25 @@
-# Level Analysis (RQ4) Explanation
+# RQ4: Level Analysis (Phone Game Tracking)
 
-## Overview
-This folder investigates **RQ4:** *What is the effect of level in the games?* 
-We test this exclusively on the Phone (Gamified) data to see how performance scales as the visual arrays become increasingly dense and cognitively demanding across 15 levels.
+## 1. What Statistical Tests Are In Here?
+This folder exclusively evaluates if performance fundamentally decays as the levels progress from 1 to 15.
+- **Repeated Measures (RM) ANOVA:** Tracks Reaction Time changes over level progressions.
+- **Friedman Test:** The non-parametric equivalent of an RM ANOVA, tracking Accuracy over level progressions.
+- **Trend Correlations (Pearson/Spearman):** These tell us the "Slope" (direction) of the progression line. Does time go strictly *up*, and does accuracy go strictly *down*? 
 
-## The Plots Explained
+## 2. Which Plot is for Which Test?
 ### `plot_level_single_phone.png` & `plot_level_multiple_phone.png`
-These are dual-axis Line Plots with Trend Lines showing cognitive degradation over time.
-- **Left Plot (Reaction Time):** The Blue dots track Reaction Time. The Red dashed line is the `Pearson` trend. The line clearly shoots upwards, visualizing that as levels get higher (Level 10+), humans take much longer to find targets.
-- **Right Plot (Accuracy):** The Green squares track Accuracy. The Red dashed line is the `Spearman` trend. It tilts aggressively downwards, visualizing that as the visual screen gets incredibly messy in higher levels, human accuracy strictly drops.
+- **Left Plots (Reaction Time):** The Blue dots map to the `Repeated Measures ANOVA` test. The Red dashed trendline maps to the `Pearson` correlation slope test.
+- **Right Plots (Accuracy):** The Green dots map to the `Friedman` test. The Red dashed trendline maps to the `Spearman` correlation slope test.
 
-## Key Outcomes (Highly Significant, p < .0001)
-1.  **Reaction Time (Repeated Measures ANOVA & Pearson Trend):** Both tests powerfully confirmed that Level heavily impacts time. The Pearson $r$ tests ($r = 0.83$ and $r = 0.73$) show massive positive correlations: higher level always equals higher search time. 
-2.  **Accuracy (Friedman Test & Spearman Trend):** Both tests completely confirmed that Level impacts accuracy. Specifically, the negative Spearman $\rho$ values prove that human accuracy decays as the level variables scale upward. 
-3.  **Conclusion:** The gamified application successfully stresses the human cognitive load exactly as intended. As the game gets harder, humans empirically get slower and clumsier.
+## 3. The Results & Why They Are Significant
+*The scientific threshold for statistical significance is **alpha ($\alpha$) = 0.05**. If our $p$-value is **LESS THAN 0.05**, we declare it "Significant".*
+
+**A. Reaction Time Deterioration (Repeated Measures ANOVA & Pearson Trend)**
+*   **Exact Values:** The ANOVA yielded an astronomical $p = 0.0000$ (e.g. $p = 1.11 \times 10^{-16}$). The Pearson slope was strongly significant as well ($p = 0.0001$ for Single target). 
+*   **Is it significant?** YES. Since 0.0000 < 0.05, it is massively significant. 
+*   **Outcome:** Both tests prove that as your visual game scales up the levels, human search time strictly, predictably worsens (takes longer). 
+
+**B. Accuracy Deterioration (Friedman Test & Spearman Trend)**
+*   **Exact Values:** The Friedman score was $p = 0.0001$. The Spearman slope yielded $p = 0.0145$. 
+*   **Is it significant?** YES. Since 0.0001 < 0.05, and 0.0145 < 0.05, they are strongly significant. 
+*   **Outcome:** Both tests prove that as visual congestion scales up in later levels, human accuracy predictably degrades (decays downwards). The game difficulty naturally defeats human cognitive ceilings.
