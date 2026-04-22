@@ -3,8 +3,17 @@
 ## 1. What Statistical Tests Are In Here?
 This folder exclusively evaluates if performance fundamentally decays as the levels progress from 1 to 15. All of these tests exist purely to answer RQ4.
 - **Repeated Measures (RM) ANOVA:** Tracks Reaction Time changes over level progressions.
-- **Friedman Test:** Tracks Accuracy over level progressions.
+- **Friedman Test:** The non-parametric equivalent of an RM ANOVA, tracking Accuracy over level progressions.
 - **Trend Correlations (Pearson/Spearman):** These tell us the "Slope" (direction) of the progression line. Does time go *up*, and does accuracy go *down*? 
+
+### The Mathematical Formulas Used
+**One-Way Repeated Measures ANOVA:** Evaluates the variance within the identical human subjects across $k$ different treatments (levels).
+$$ F = \frac{MS_{Levels}}{MS_{Error}} $$
+Where $SS_{Error}$ mathematically removes the natural performance differences between humans ($SS_{Subjects}$) from the total pool of variance.
+$$ SS_{Error} = SS_{Total} - SS_{Levels} - SS_{Subjects} $$
+
+**Friedman Test ($\chi^2$):** A non-parametric test to detect differences across multiple levels without assuming normal distribution. It ranks scores within each participant across the $k$ levels. Where $R_j$ is the sum of ranks for the $j^{th}$ level and $n$ is participants:
+$$ \chi^2_R = \left[ \frac{12}{nk(k+1)} \sum_{j=1}^k R_j^2 \right] - 3n(k+1) $$
 
 ## 2. Which Plot is for Which Test?
 ### `plot_level_single_phone.png` & `plot_level_multiple_phone.png`

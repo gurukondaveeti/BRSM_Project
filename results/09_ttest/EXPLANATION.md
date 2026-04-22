@@ -5,6 +5,18 @@ Because the massive ANOVA test in Folder 08 proved that "differences exist" for 
 - **Paired Samples t-test:** Used to compare Game vs Lab (Answers RQ3).
 - **Independent Samples t-test:** Used to compare Single vs Multiple Targets (Answers RQ2).
 
+### The Mathematical Formulas Used
+**Independent Samples $t$-test (Student's t):** Compares the means of two distinctly separate groups ($\bar{X}_1$ and $\bar{X}_2$).
+$$ t = \frac{\bar{X}_1 - \bar{X}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} $$
+*(Where $s_p$ is the pooled standard deviation).*
+
+**Paired Samples $t$-test:** Compares the means of two related groups. It calculates the mean difference ($\bar{D}$) between the paired observations (e.g. Game RT minus Lab RT for the *same* person).
+$$ t = \frac{\bar{D}}{\frac{s_D}{\sqrt{n}}} $$
+*(Where $s_D$ is the standard deviation of the differences).*
+
+**Cohen's $d$ Effect Size:** Tells us how "large" or meaningful the difference actually is, measured in standard deviations.
+$$ d = \frac{\bar{X}_1 - \bar{X}_2}{s_{pooled}} $$
+
 ## 2. Which Plot is for Which Test?
 ### `plot_ttest_comparison.png`
 - **Left Plot:** Visualizes the `Paired Samples t-tests`. It charts the physical time difference between identical participants jumping from the Phone to the Lab.

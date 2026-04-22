@@ -6,6 +6,17 @@
     2. The main effect of Modality (Answers RQ3).
     3. The Interaction (how Load and Modality affect each other).
 
+### The Mathematical Formulas Used
+The ANOVA calculates an $F$-statistic by dividing the variance explained by the experiment by the unexplained error.
+$$ F = \frac{MS_{effect}}{MS_{error}} $$
+Where the Mean Square ($MS$) is the Sum of Squares ($SS$) divided by the Degrees of Freedom ($df$):
+$$ MS = \frac{SS}{df} $$
+
+For our **Mixed Model**, Total Variance is mathematically decomposed into Between-Subjects and Within-Subjects variance:
+$$ SS_{Total} = SS_{Between} + SS_{Within} $$
+$$ SS_{Between} = SS_{TargetLoad} + SS_{Subject(Error)} $$
+$$ SS_{Within} = SS_{Modality} + SS_{Interaction} + SS_{Error(Within)} $$
+
 ## 2. Which Plot is for Which Test?
 ### `plot_interaction_rt.png`
 This plot specifically visualizes the **Interaction Effect** of the 2x2 Mixed ANOVA test.

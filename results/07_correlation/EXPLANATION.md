@@ -4,6 +4,13 @@
 - **Pearson's r Correlation:** Used for Reaction Time (because the RT data was normally distributed).
 - **Spearman's Rho Correlation:** Used for Accuracy (because the Accuracy data had a ceiling effect and was not normally distributed).
 
+### The Mathematical Formulas Used
+**Pearson's $r$:** Measures the strength of the linear relationship between two continuous variables ($x$ and $y$).
+$$ r = \frac{\sum(x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum(x_i - \bar{x})^2 \sum(y_i - \bar{y})^2}} $$
+
+**Spearman's $\rho$ (rho):** A non-parametric measure that ranks the data points and checks for monotonic relationships, rather than linear ones. Where $d_i$ is the difference between the sorted ranks of corresponding values:
+$$ \rho = 1 - \frac{6 \sum d_i^2}{n(n^2 - 1)} $$
+
 ## 2. Which Plot is for Which Test?
 ### `plot_correlation_scatter.png`
 This image contains 4 scatter plots visualizing the correlation tests.

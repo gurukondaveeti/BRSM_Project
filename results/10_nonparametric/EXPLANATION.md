@@ -5,6 +5,15 @@ Because human Accuracy suffered from a "Ceiling Effect" (where most people score
 - **Wilcoxon Signed-Rank Test:** The non-parametric replacement for the Paired t-test. It compares Game vs Lab Accuracy (Answers RQ3).
 - **Mann-Whitney U Test:** The non-parametric replacement for the Independent t-test. It compares Single vs Multiple Target accuracy (Answers RQ2).
 
+### The Mathematical Formulas Used
+**Mann-Whitney $U$ Test:** Ranks all scores across both independent groups from smallest to largest, then calculates the $U$ statistic based on the sum of the ranks ($R$) for each group.
+$$ U_1 = n_1 n_2 + \frac{n_1(n_1 + 1)}{2} - R_1 $$
+$$ U_2 = n_1 n_2 + \frac{n_2(n_2 + 1)}{2} - R_2 $$
+*(The final $U$ statistic is the smaller value between $U_1$ and $U_2$)*.
+
+**Wilcoxon Signed-Rank Test ($W$):** Calculates the absolute differences between paired scores, ranks those non-zero differences without considering their signs, and then sums the ranks associated with positive differences ($W^+$) and negative differences ($W^-$).
+$$ W = \min(\sum R_+, \sum R_-) $$
+
 ## 2. Which Plot is for Which Test?
 ### `plot_nonparametric_accuracy.png`
 - **Left Plot:** Visualizes the spread of Accuracy, mapping exactly to what the `Mann-Whitney U` sees. 
