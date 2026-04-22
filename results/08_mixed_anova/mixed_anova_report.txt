@@ -1,12 +1,12 @@
 2x2 MIXED FACTORIAL ANOVA - REACTION TIME
 ============================================================
 
-                       Source           SS  df_effect  df_error           MS          F            p  partial_eta2  Significant
-        Target Load (Between) 1.592971e+07          1        32 1.592971e+07 125.336395 1.334377e-12      0.796614         True
-            Modality (Within) 1.078840e+07          1        32 1.078840e+07 127.330330 1.089240e-12      0.799159         True
-Load x Modality (Interaction) 9.526950e+06          1        32 9.526950e+06 112.442022 5.297762e-12      0.778458         True
+                       Source       SS  df_effect  df_error       MS          F            p  partial_eta2  Significant
+        Target Load (Between) 0.859757          1        32 0.859757 166.586460 3.141931e-14      0.838861         True
+            Modality (Within) 0.377991          1        32 0.377991 124.521718 1.450839e-12      0.795556         True
+Load x Modality (Interaction) 0.427471          1        32 0.427471 140.821768 2.939871e-13      0.814838         True
 
 APA-Style:
-  Target Load (Between): F(1, 32) = 125.34, p = 0.0000, partial eta^2 = 0.797 [*]
-  Modality (Within): F(1, 32) = 127.33, p = 0.0000, partial eta^2 = 0.799 [*]
-  Load x Modality (Interaction): F(1, 32) = 112.44, p = 0.0000, partial eta^2 = 0.778 [*]
+  Target Load (Between): F(1, 32) = 166.59, p = 0.0000, partial eta^2 = 0.839 [*]
+  Modality (Within): F(1, 32) = 124.52, p = 0.0000, partial eta^2 = 0.796 [*]
+  Load x Modality (Interaction): F(1, 32) = 140.82, p = 0.0000, partial eta^2 = 0.815 [*]

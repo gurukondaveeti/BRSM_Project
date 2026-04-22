@@ -6,16 +6,16 @@
 LEVEL ANALYSIS: Single_Phone
 ============================================================
   Levels completed by all (21 participants): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-  RT Trend (Pearson): r = 0.8352, p = 0.0001 -> SIGNIFICANT
+  RT Trend (Pearson): r = 0.8346, p = 0.0001 -> SIGNIFICANT
   Accuracy Trend (Spearman): rho = -0.6159, p = 0.0145 -> SIGNIFICANT
-  RM ANOVA (RT across 15 levels, N=21): F(14, 280) = 12.752, p = 0.0000, eta^2 = 0.389 -> SIGNIFICANT
+  RM ANOVA (RT across 15 levels, N=21): F(14, 280) = 19.573, p = 0.0000, eta^2 = 0.495 -> SIGNIFICANT
   Friedman Test (Accuracy across 15 levels, N=21): chi2 = 44.263, p = 0.0001 -> SIGNIFICANT
 
 ============================================================
 LEVEL ANALYSIS: Multiple_Phone
 ============================================================
   Levels completed by all (16 participants): [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  RT Trend (Pearson): r = 0.7317, p = 0.0029 -> SIGNIFICANT
+  RT Trend (Pearson): r = 0.7647, p = 0.0014 -> SIGNIFICANT
   Accuracy Trend (Spearman): rho = -0.7495, p = 0.0020 -> SIGNIFICANT
-  RM ANOVA (RT across 10 levels, N=16): F(9, 135) = 26.097, p = 0.0000, eta^2 = 0.635 -> SIGNIFICANT
+  RM ANOVA (RT across 10 levels, N=16): F(9, 135) = 39.297, p = 0.0000, eta^2 = 0.724 -> SIGNIFICANT
   Friedman Test (Accuracy across 10 levels, N=16): chi2 = 46.787, p = 0.0000 -> SIGNIFICANT

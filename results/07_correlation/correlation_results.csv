@@ -1,5 +1,5 @@
 Condition,Metric,Test,r,p,Significant,N
-Single,RT,Pearson r,0.3573842193418283,0.1218713772850915,False,20
+Single,RT,Pearson r,0.3680908164559795,0.11030795596059795,False,20
 Single,Accuracy,Spearman rho,,,False,20
-Multiple,RT,Pearson r,0.28224457983762186,0.3282349554732199,False,14
+Multiple,RT,Pearson r,0.23583030173956973,0.4169795699331849,False,14
 Multiple,Accuracy,Spearman rho,0.1322396078737107,0.6522404419581811,False,14
