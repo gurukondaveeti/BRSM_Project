@@ -1,0 +1,94 @@
+
+============================================================
+NORMALITY TESTS FOR: Accuracy (%)
+============================================================
+
+  Single_Phone:
+    N = 21, Mean = 95.79, SD = 5.56
+    Skewness = -1.4210 (Substantially Negative Skew)
+    Kurtosis = 0.9363
+    Shapiro-Wilk: W = 0.7616, p = 0.0002
+    *** RESULT: Data is NOT normally distributed (p <= 0.05) ***
+
+  Single_Lab:
+    N = 20, Mean = 100.00, SD = 0.00
+    Skewness = nan (Unknown)
+    Kurtosis = nan
+    Shapiro-Wilk: W = 1.0000, p = 1.0000
+    *** RESULT: Data IS normally distributed (p > 0.05) ***
+
+  Multiple_Phone:
+    N = 16, Mean = 96.37, SD = 2.53
+    Skewness = -0.2479 (Approximately Symmetric)
+    Kurtosis = -0.6068
+    Shapiro-Wilk: W = 0.9620, p = 0.6981
+    *** RESULT: Data IS normally distributed (p > 0.05) ***
+
+  Multiple_Lab:
+    N = 14, Mean = 98.29, SD = 2.48
+    Skewness = -1.4350 (Substantially Negative Skew)
+    Kurtosis = 1.0094
+    Shapiro-Wilk: W = 0.7490, p = 0.0013
+    *** RESULT: Data is NOT normally distributed (p <= 0.05) ***
+
+============================================================
+NORMALITY TESTS FOR: Reaction Time (ms)
+============================================================
+
+  Single_Phone:
+    N = 21, Mean = 2957.55, SD = 520.82
+    Skewness = 0.4718 (Approximately Symmetric)
+    Kurtosis = -0.7379
+    Shapiro-Wilk: W = 0.9461, p = 0.2869
+    *** RESULT: Data IS normally distributed (p > 0.05) ***
+
+  Single_Lab:
+    N = 20, Mean = 1527.11, SD = 162.71
+    Skewness = 0.0496 (Approximately Symmetric)
+    Kurtosis = 0.1990
+    Shapiro-Wilk: W = 0.9766, p = 0.8835
+    *** RESULT: Data IS normally distributed (p > 0.05) ***
+
+  Multiple_Phone:
+    N = 16, Mean = 1856.46, SD = 507.28
+    Skewness = 0.8737 (Moderately Positive Skew)
+    Kurtosis = 0.5974
+    Shapiro-Wilk: W = 0.9262, p = 0.2124
+    *** RESULT: Data IS normally distributed (p > 0.05) ***
+
+  Multiple_Lab:
+    N = 14, Mean = 6413.51, SD = 590.74
+    Skewness = -0.1863 (Approximately Symmetric)
+    Kurtosis = -0.6993
+    Shapiro-Wilk: W = 0.9625, p = 0.7638
+    *** RESULT: Data IS normally distributed (p > 0.05) ***
+
+
+============================================================
+NORMALITY SUMMARY TABLE
+============================================================
+
+                       label  n        mean        std  skewness  kurtosis  shapiro_W  shapiro_p  is_normal                   skew_type
+  Single_Phone_Mean_Accuracy 21   95.787341   5.564896 -1.420984  0.936277   0.761649   0.000180      False Substantially Negative Skew
+    Single_Lab_Mean_Accuracy 20  100.000000   0.000000       NaN       NaN   1.000000   1.000000       True                     Unknown
+Multiple_Phone_Mean_Accuracy 16   96.372026   2.533978 -0.247945 -0.606786   0.961995   0.698110       True     Approximately Symmetric
+  Multiple_Lab_Mean_Accuracy 14   98.285714   2.476754 -1.435031  1.009372   0.749046   0.001250      False Substantially Negative Skew
+        Single_Phone_Mean_RT 21 2957.554876 520.819635  0.471771 -0.737897   0.946106   0.286950       True     Approximately Symmetric
+          Single_Lab_Mean_RT 20 1527.113102 162.707068  0.049563  0.198981   0.976621   0.883458       True     Approximately Symmetric
+      Multiple_Phone_Mean_RT 16 1856.455654 507.279711  0.873699  0.597371   0.926242   0.212423       True    Moderately Positive Skew
+        Multiple_Lab_Mean_RT 14 6413.513097 590.744095 -0.186309 -0.699281   0.962492   0.763837       True     Approximately Symmetric
+
+
+============================================================
+TRANSFORMATION RECOMMENDATIONS
+============================================================
+
+2 distributions are NOT normal and need transformation:
+
+  Single_Phone_Mean_Accuracy:
+    Skewness: -1.4210 (Substantially Negative Skew)
+    Recommended transformation: log10(k - x) where k = max + 1
+
+  Multiple_Lab_Mean_Accuracy:
+    Skewness: -1.4350 (Substantially Negative Skew)
+    Recommended transformation: log10(k - x) where k = max + 1
