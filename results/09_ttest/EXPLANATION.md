@@ -21,12 +21,12 @@ Because the massive ANOVA test in Folder 08 proved that "differences exist" for 
 **A. Phone (Game) vs Lab — Single Target (Paired t-test)**
 *   **Exact Value:** $p = 0.0000$ (Mathematically, $p = 9.13 \times 10^{-11}$)
 *   **Is it significant?** YES. Since 0.0000 < 0.05, it is massively significant. 
-*   **Conclusion to write:** For simple 1-target searches, the Lab was significantly faster (~1422 ms faster) than the Game.
+*   **Conclusion to write:** For simple 1-target searches, the Lab was significantly **faster** (~1422 ms faster) than the Gamified interface.
 
 **B. Phone (Game) vs Lab — Multiple Target (Paired t-test)**
 *   **Exact Value:** $p = 0.1366$
 *   **Is it significant?** NO! Since 0.1366 > 0.05, it is not significant. 
-*   **Conclusion to write:** As soon as you increase cognitive load to 5 targets, the interface completely stops mattering. Reaction times statistically equalized between the Game and the Lab.
+*   **Conclusion to write:** As soon as you increase cognitive load to 5 targets, the interface completely stops mattering. Reaction times statistically equalized, meaning neither the Gamified interface nor the Lab interface was faster or slower.
 
 ### ANSWERING RQ2: Is performance significantly worse in the Multiple Target condition compared to the Single Target condition? (Part 1 - Reaction Time)
 
@@ -38,4 +38,4 @@ Because the massive ANOVA test in Folder 08 proved that "differences exist" for 
 *   **Exact Value:** $p = 0.0001$ 
 *   **Is it significant?** YES. Since 0.0001 < 0.05, it is highly significant.
 
-**Final Conclusion to write for RQ2 (Reaction Time):** Yes, target load systematically alters performance on both the Phone and the Lab interfaces.
+**Final Conclusion to write for RQ2 (Reaction Time):** Yes. When explicitly breaking down the data, processing multiple targets is significantly **faster (more efficient per-target)** than processing a single target, and this mathematically holds true regardless of whether the participant is using the Gamified Phone application or the sterile Lab environment.

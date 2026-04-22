@@ -20,22 +20,22 @@ Because human Accuracy suffered from a "Ceiling Effect" (where most people score
 **A. Game vs Lab Accuracy — Single Target (Wilcoxon Signed-Rank)**
 *   **Exact Value:** $p = 0.0022$
 *   **Is it significant?** YES. Since 0.0022 < 0.05, it is significant. 
-*   **Conclusion:** Human accuracy natively degraded down to ~96% in the Game, compared to sitting at a flawless 100% in the sterile Lab.
+*   **Conclusion:** Human accuracy was significantly **worse** in the Gamified interface (degrading down to ~96%) compared to sitting at a flawless 100% in the sterile Lab interface.
 
 **B. Game vs Lab Accuracy — Multiple Target (Wilcoxon Signed-Rank)**
 *   **Exact Value:** $p = 0.1330$
 *   **Is it significant?** NO. Since 0.1330 > 0.05, it is not significant. 
-*   **Conclusion:** The accuracy medians (99.3% Lab vs 96.3% Game) are statistically identical under this heavy visual load.
+*   **Conclusion:** Under heavy visual loads (5 targets), the accuracy medians were statistically identical. The Game is neither better nor worse than the Lab.
 
 ### ANSWERING RQ2: Is performance significantly worse in the Multiple Target condition compared to the Single Target condition? (Part 2 - Accuracy)
 **C. Single vs Multi Target — Phone (Mann-Whitney U)**
 *   **Exact Value:** $p = 0.3593$
 *   **Is it significant?** NO. Since 0.3593 > 0.05, it is not significant. 
-*   **Conclusion:** The gamified app kept humans just as accurate at Level 1 as it did when evaluating 5 targets.
+*   **Conclusion:** Within the Gamified app, hunting for multiple targets was **neither better nor worse** for accuracy than hunting for single targets. The game shielded humans against accuracy loss.
 
 **D. Single vs Multi Target — Lab (Mann-Whitney U)**
 *   **Exact Value:** $p = 0.0006$
 *   **Is it significant?** YES. Since 0.0006 < 0.05, it is highly significant. 
-*   **Conclusion:** The sterile lab environment caused human accuracy to systematically degrade when evaluating 5 targets. 
+*   **Conclusion:** Within the sterile Lab environment, hunting for multiple targets yielded significantly **worse** accuracy than hunting for single targets.
 
-**Final Conclusion to write for RQ2 (Accuracy):** Yes, but only in the Lab! Gamification somehow protected humans from losing accuracy as target load increased, whereas the sterile Lab environment caused accuracy to measurably degrade when tasks got harder!
+**Final Conclusion to write for RQ2 (Accuracy):** Only in the Lab! Increasing the target load caused accuracy to become significantly **worse** in the sterile Lab environment. However, Gamifying the interface protected users from this failure, maintaining statistically identical accuracy levels regardless of task difficulty!

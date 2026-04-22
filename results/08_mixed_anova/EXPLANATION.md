@@ -22,13 +22,13 @@ This plot specifically visualizes the **Interaction Effect** of the 2x2 Mixed AN
 *   **Test Used:** Main Effect of Target Load 
 *   **Exact Value:** $p = 0.0000$ (Mathematically, $p = 1.33 \times 10^{-12}$)
 *   **Is it significant?** YES. Since 0.0000 < 0.05, it is highly significant. 
-*   **Final Conclusion to write for RQ2:** Yes. The ANOVA proves that increasing the target load fundamentally alters the average search time per target. (Note: The independent t-tests in Folder 09 will tell us *exactly* who was worse).
+*   **Final Conclusion to write for RQ2:** Yes. The ANOVA proves that increasing the target load fundamentally alters the average search time per target. Specifically, processing 5 targets is significantly **faster per-target** than searching for just 1 single isolated target.
 
 ### ANSWERING RQ3: Does the gamified interface significantly alter performance compared to the standard lab interface?
 *   **Test Used:** Main Effect of Modality 
 *   **Exact Value:** $p = 0.0000$ (Mathematically, $p = 1.08 \times 10^{-12}$)
 *   **Is it significant?** YES. Since 0.0000 < 0.05, it is highly significant. 
-*   **Final Conclusion to write for RQ3:** Yes. The ANOVA definitively proves that forcing a human to search using a Gamified app causes drastically different reaction times than using a sterile, boring lab computer monitor.
+*   **Final Conclusion to write for RQ3:** Yes. The ANOVA definitively proves that forcing a human to search using a Gamified app causes drastically different reaction times than using a sterile lab computer. Across all conditions, the Lab interface was significantly **faster** on average than the Gamified interface.
 
 ### THE INTERACTION EFFECT (Crucial for the discussion section!)
 *   **Test Used:** Load $\times$ Modality Interaction
