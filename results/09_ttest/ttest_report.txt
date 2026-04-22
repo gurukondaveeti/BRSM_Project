@@ -1,0 +1,7 @@
+--- RQ3: PAIRED SAMPLES t-TEST (Game vs Lab RT) ---
+  Single Target: t(19) = 12.759, p = 0.0000, Cohen's d = 2.853 -> SIGNIFICANT
+  Multiple Target: t(13) = -1.587, p = 0.1366, Cohen's d = -0.424 -> Not significant
+
+--- RQ2: INDEPENDENT SAMPLES t-TEST (Single vs Multiple RT) ---
+  Phone (Game): t(35) = 12.578, p = 0.0000, Cohen's d = 4.174 -> SIGNIFICANT
+  Lab: t(32) = 4.535, p = 0.0001, Cohen's d = 1.580 -> SIGNIFICANT

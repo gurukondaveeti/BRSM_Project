@@ -1,0 +1,7 @@
+--- RQ3: WILCOXON SIGNED-RANK (Game vs Lab Accuracy) ---
+  Single Target: W = 0.0, p = 0.0022, N_nonzero = 12 -> SIGNIFICANT
+  Multiple Target: W = 24.0, p = 0.1330 -> Not significant
+
+--- RQ2: MANN-WHITNEY U (Single vs Multi Accuracy) ---
+  Phone (Game): U = 198.0, p = 0.3593, r = -0.179 -> Not significant
+  Lab: U = 210.0, p = 0.0006, r = -0.500 -> SIGNIFICANT

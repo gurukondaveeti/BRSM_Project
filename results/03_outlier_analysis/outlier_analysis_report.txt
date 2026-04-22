@@ -1,0 +1,192 @@
+
+############################################################
+# STANDARD OUTLIER DETECTION (1.5 × IQR)
+############################################################
+
+============================================================
+Condition: Single_Phone | Metric: Mean_Accuracy
+============================================================
+  N = 21
+  Q1 = 95.00, Q3 = 100.00, IQR = 5.00
+  Lower Fence (1.5×IQR): 87.50
+  Upper Fence (1.5×IQR): 107.50
+  Outliers found: 3
+    -> Participant 5: 81.75
+    -> Participant 6: 83.28
+    -> Participant 8: 87.27
+
+============================================================
+Condition: Single_Lab | Metric: Mean_Accuracy
+============================================================
+  N = 21
+  Q1 = 100.00, Q3 = 100.00, IQR = 0.00
+  Lower Fence (1.5×IQR): 100.00
+  Upper Fence (1.5×IQR): 100.00
+  Outliers found: 0
+    -> No outliers detected
+
+============================================================
+Condition: Multiple_Phone | Metric: Mean_Accuracy
+============================================================
+  N = 16
+  Q1 = 94.30, Q3 = 98.37, IQR = 4.07
+  Lower Fence (1.5×IQR): 88.19
+  Upper Fence (1.5×IQR): 104.47
+  Outliers found: 0
+    -> No outliers detected
+
+============================================================
+Condition: Multiple_Lab | Metric: Mean_Accuracy
+============================================================
+  N = 16
+  Q1 = 97.00, Q3 = 100.00, IQR = 3.00
+  Lower Fence (1.5×IQR): 92.50
+  Upper Fence (1.5×IQR): 104.50
+  Outliers found: 2
+    -> Participant 29: 92.00
+    -> Participant 32: 45.33
+
+============================================================
+Condition: Single_Phone | Metric: Mean_RT
+============================================================
+  N = 21
+  Q1 = 2616.75, Q3 = 3148.46, IQR = 531.71
+  Lower Fence (1.5×IQR): 1819.18
+  Upper Fence (1.5×IQR): 3946.03
+  Outliers found: 1
+    -> Participant 21: 3968.20
+
+============================================================
+Condition: Single_Lab | Metric: Mean_RT
+============================================================
+  N = 21
+  Q1 = 1431.58, Q3 = 1640.13, IQR = 208.56
+  Lower Fence (1.5×IQR): 1118.74
+  Upper Fence (1.5×IQR): 1952.97
+  Outliers found: 1
+    -> Participant 1: 2331.35
+
+============================================================
+Condition: Multiple_Phone | Metric: Mean_RT
+============================================================
+  N = 16
+  Q1 = 1080.78, Q3 = 1300.69, IQR = 219.91
+  Lower Fence (1.5×IQR): 750.92
+  Upper Fence (1.5×IQR): 1630.55
+  Outliers found: 1
+    -> Participant 24: 1815.12
+
+============================================================
+Condition: Multiple_Lab | Metric: Mean_RT
+============================================================
+  N = 16
+  Q1 = 1223.61, Q3 = 1378.99, IQR = 155.38
+  Lower Fence (1.5×IQR): 990.53
+  Upper Fence (1.5×IQR): 1612.06
+  Outliers found: 1
+    -> Participant 37: 2087.38
+
+
+############################################################
+# EXTREME OUTLIER DETECTION (3 × IQR)
+############################################################
+
+============================================================
+Condition: Single_Phone | Metric: Mean_Accuracy
+============================================================
+  N = 21
+  Q1 = 95.00, Q3 = 100.00, IQR = 5.00
+  Lower Fence (3.0×IQR): 80.00
+  Upper Fence (3.0×IQR): 115.00
+  Outliers found: 0
+    -> No outliers detected
+
+============================================================
+Condition: Single_Lab | Metric: Mean_Accuracy
+============================================================
+  N = 21
+  Q1 = 100.00, Q3 = 100.00, IQR = 0.00
+  Lower Fence (3.0×IQR): 100.00
+  Upper Fence (3.0×IQR): 100.00
+  Outliers found: 0
+    -> No outliers detected
+
+============================================================
+Condition: Multiple_Phone | Metric: Mean_Accuracy
+============================================================
+  N = 16
+  Q1 = 94.30, Q3 = 98.37, IQR = 4.07
+  Lower Fence (3.0×IQR): 82.09
+  Upper Fence (3.0×IQR): 110.57
+  Outliers found: 0
+    -> No outliers detected
+
+============================================================
+Condition: Multiple_Lab | Metric: Mean_Accuracy
+============================================================
+  N = 16
+  Q1 = 97.00, Q3 = 100.00, IQR = 3.00
+  Lower Fence (3.0×IQR): 88.00
+  Upper Fence (3.0×IQR): 109.00
+  Outliers found: 1
+    -> Participant 32: 45.33
+
+============================================================
+Condition: Single_Phone | Metric: Mean_RT
+============================================================
+  N = 21
+  Q1 = 2616.75, Q3 = 3148.46, IQR = 531.71
+  Lower Fence (3.0×IQR): 1021.62
+  Upper Fence (3.0×IQR): 4743.60
+  Outliers found: 0
+    -> No outliers detected
+
+============================================================
+Condition: Single_Lab | Metric: Mean_RT
+============================================================
+  N = 21
+  Q1 = 1431.58, Q3 = 1640.13, IQR = 208.56
+  Lower Fence (3.0×IQR): 805.91
+  Upper Fence (3.0×IQR): 2265.80
+  Outliers found: 1
+    -> Participant 1: 2331.35
+
+============================================================
+Condition: Multiple_Phone | Metric: Mean_RT
+============================================================
+  N = 16
+  Q1 = 1080.78, Q3 = 1300.69, IQR = 219.91
+  Lower Fence (3.0×IQR): 421.06
+  Upper Fence (3.0×IQR): 1960.42
+  Outliers found: 0
+    -> No outliers detected
+
+============================================================
+Condition: Multiple_Lab | Metric: Mean_RT
+============================================================
+  N = 16
+  Q1 = 1223.61, Q3 = 1378.99, IQR = 155.38
+  Lower Fence (3.0×IQR): 757.46
+  Upper Fence (3.0×IQR): 1845.14
+  Outliers found: 1
+    -> Participant 37: 2087.38
+
+
+############################################################
+# OUTLIER REMOVAL DECISION
+############################################################
+
+Strategy: Conservative approach due to small sample sizes (N=16-21)
+- Only remove EXTREME outliers (> 3×IQR) that are clearly erroneous
+- Keep mild outliers (1.5-3×IQR) as they may represent natural variation
+- Flag all outliers in the report for transparency
+
+  REMOVING: Participant 32 from Multiple_Lab (extreme outlier in Mean_Accuracy: 45.33)
+
+  REMOVING: Participant 1 from Single_Lab (extreme outlier in Mean_RT: 2331.35)
+
+  REMOVING: Participant 37 from Multiple_Lab (extreme outlier in Mean_RT: 2087.38)
+
+  Original data points: 74
+  After cleaning: 71
+  Points removed: 3

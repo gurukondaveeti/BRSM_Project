@@ -1,0 +1,8 @@
+
+--- SINGLE TARGET (N=20) ---
+  RT Pearson's r = 0.3574, p = 0.1219 -> Not significant
+  Accuracy Spearman's rho: CANNOT COMPUTE (Single Lab accuracy = 100% for all)
+
+--- MULTIPLE TARGET (N=14) ---
+  RT Pearson's r = 0.2822, p = 0.3282 -> Not significant
+  Accuracy Spearman's rho = 0.1322, p = 0.6522 -> Not significant

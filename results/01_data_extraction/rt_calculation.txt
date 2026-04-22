@@ -1,0 +1,54 @@
+# Reaction Time (RT) Calculation Methodology
+
+**Prepared for: Project Final Report**
+
+A major methodological challenge in validating the Selective Attention Game against the standard PsychoPy Lab Task is that the number of targets varies between the tasks in the "Multiple Target" condition. The Lab task strictly required finding exactly 5 targets per trial. However, the gamified levels ramped in difficulty, sometimes requiring the participant to find more than 10 targets in a single level. 
+
+If we simply measured "Total Trial Reaction Time," we would falsely penalize the game because it naturally takes longer to find 15 targets than it does 5 targets. 
+
+Therefore, to achieve a mathematically sound, apples-to-apples comparison across all conditions, we define and use the **Average Search Time per Target (ms)** as our primary Reaction Time metric.
+
+---
+
+### 1. Multiple Lab Task (PsychoPy) RT Calculation
+
+**Data Structure:**
+The Lab output (`multiple_lab_combined.csv`) provides `mouse.time`, which is an array of cumulative click timestamps (e.g., `[1.882, 2.948, 4.026, 5.357, 6.344]`).
+
+**Methodology:**
+To normalize the RT by the number of targets found, we calculate the total time elapsed in the trial and divide it by the length of the click array.
+
+**Formula:**
+`Total Lab RT = Maximum(mouse.time array) × 1000`
+`Targets Clicked (N) = Length of mouse.time array`
+`Average Search Time per Target (ms) = Total Lab RT / N`
+
+---
+
+### 2. Multiple Phone Task (Game) RT Calculation
+
+**Data Structure:**
+The Game output (`multiple_phone_combined.csv`) records the temporal breakdown of visual search via two distinct columns:
+*   `InitialResponseTime(ms)`: The time taken to visually locate and tap the very *first* target.
+*   `AvgInterTargetTime(ms)`: The average time taken between subsequent object taps.
+*   `HitPositions(x,y)`: A list of coordinate pairs representing every successful hit.
+
+**Methodology:**
+First, we mathematically derive the Total Trial Time. Then, we divide it by the number of targets isolated during that specific game level.
+
+**Formula:**
+`Hits (N) = Count of coordinate pairs in HitPositions(x,y)`
+`Total Game RT = InitialResponseTime + [ AvgInterTargetTime × (N - 1) ]`
+`Average Search Time per Target (ms) = Total Game RT / N`
+
+---
+
+### 3. Single Target Conditions (Baseline)
+
+For the Single Target conditions (both Game and Lab), exactly 1 target is presented per trial.
+Therefore, the Total RT is identical to the Average Search Time per Target. 
+`Average Search Time per Target (ms) = Total RT / 1`
+
+### 4. Aggregation for Inference
+
+After computing the *Average Search Time per Target* for every row in both datasets, we compute the arithmetic mean per participant. This unified metric eliminates the confound of varying target loads, creating a normalized variable perfectly suited for our 2x2 Mixed Factorial ANOVA.

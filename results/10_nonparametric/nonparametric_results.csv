@@ -1,0 +1,5 @@
+Test,Comparison,Statistic,p,N,Significant
+Wilcoxon Signed-Rank,Single: Phone vs Lab Accuracy,0.0,0.0021744287434981597,20,True
+Wilcoxon Signed-Rank,Multiple: Phone vs Lab Accuracy,24.0,0.13295729296233563,14,False
+Mann-Whitney U,Phone: Single vs Multiple Accuracy,198.0,0.3593062498027383,37,False
+Mann-Whitney U,Lab: Single vs Multiple Accuracy,210.0,0.0005746486603708999,34,True

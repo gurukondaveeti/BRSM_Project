@@ -1,0 +1,81 @@
+
+============================================================
+Single_Phone - Accuracy (%)
+============================================================
+  Original: Skewness = -1.4210 (Substantially Negative Skew), Shapiro-Wilk p = 0.0002
+  *** NOT NORMAL - Trying transformations ***
+  sqrt(101.00 - x): SW p = 0.0023, Skew = 0.8122
+  log10(101.00 - x): SW p = 0.0023, Skew = 0.2314
+
+  *** FAILED: No transformation achieved normality. Best: 'log10(101.00 - x)' (p = 0.0023) ***
+
+============================================================
+Single_Lab - Accuracy (%)
+============================================================
+  Original: Skewness = nan (Unknown), Shapiro-Wilk p = 1.0000
+  *** ALREADY NORMAL - No transformation needed ***
+
+============================================================
+Multiple_Phone - Accuracy (%)
+============================================================
+  Original: Skewness = -0.2479 (Approximately Symmetric), Shapiro-Wilk p = 0.6981
+  *** ALREADY NORMAL - No transformation needed ***
+
+============================================================
+Multiple_Lab - Accuracy (%)
+============================================================
+  Original: Skewness = -1.4350 (Substantially Negative Skew), Shapiro-Wilk p = 0.0013
+  *** NOT NORMAL - Trying transformations ***
+  sqrt(101.00 - x): SW p = 0.0045, Skew = 1.0088
+  log10(101.00 - x): SW p = 0.0068, Skew = 0.6304
+
+  *** FAILED: No transformation achieved normality. Best: 'log10(101.00 - x)' (p = 0.0068) ***
+
+============================================================
+Single_Phone - Reaction Time (ms)
+============================================================
+  Original: Skewness = 0.4718 (Approximately Symmetric), Shapiro-Wilk p = 0.2869
+  *** ALREADY NORMAL - No transformation needed ***
+
+============================================================
+Single_Lab - Reaction Time (ms)
+============================================================
+  Original: Skewness = 0.0496 (Approximately Symmetric), Shapiro-Wilk p = 0.8835
+  *** ALREADY NORMAL - No transformation needed ***
+
+============================================================
+Multiple_Phone - Reaction Time (ms)
+============================================================
+  Original: Skewness = 0.7032 (Moderately Positive Skew), Shapiro-Wilk p = 0.1066
+  *** ALREADY NORMAL - No transformation needed ***
+
+============================================================
+Multiple_Lab - Reaction Time (ms)
+============================================================
+  Original: Skewness = 0.0407 (Approximately Symmetric), Shapiro-Wilk p = 0.5280
+  *** ALREADY NORMAL - No transformation needed ***
+
+
+======================================================================
+FINAL TRANSFORMATION SUMMARY
+======================================================================
+
+     Condition        Metric  Original_Skewness  Original_SW_p  Original_Normal        Best_Transform  Transformed_SW_p  Transformed_Normal  Transformed_Skewness
+  Single_Phone Mean_Accuracy          -1.420984       0.000180            False     log10(101.00 - x)          0.002346               False              0.231415
+    Single_Lab Mean_Accuracy                NaN       1.000000             True None (already normal)          1.000000                True                   NaN
+Multiple_Phone Mean_Accuracy          -0.247945       0.698110             True None (already normal)          0.698110                True             -0.247945
+  Multiple_Lab Mean_Accuracy          -1.435031       0.001250            False     log10(101.00 - x)          0.006832               False              0.630352
+  Single_Phone       Mean_RT           0.471771       0.286950             True None (already normal)          0.286950                True              0.471771
+    Single_Lab       Mean_RT           0.049563       0.883458             True None (already normal)          0.883458                True              0.049563
+Multiple_Phone       Mean_RT           0.703196       0.106585             True None (already normal)          0.106585                True              0.703196
+  Multiple_Lab       Mean_RT           0.040682       0.528008             True None (already normal)          0.528008                True              0.040682
+
+
+OVERALL RESULTS:
+  Already normal:                6 / 8
+  Successfully transformed:      0 / 8
+  Could not normalize:           2 / 8
+
+Note: For distributions that could not be normalized,
+non-parametric tests (e.g., Mann-Whitney U, Wilcoxon, Kruskal-Wallis)
+should be used instead of parametric tests.
