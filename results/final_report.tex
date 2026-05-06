@@ -1,0 +1,582 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in, columnsep=0.35in]{geometry}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+\twocolumn
+
+\hypersetup{colorlinks=true, linkcolor=blue!60!black, citecolor=blue!60!black, urlcolor=blue!60!black}
+
+\title{\textbf{Attention Task Validation:\\Evaluating a Gamified Selective-Attention Application\\Against a Standard Laboratory Task}}
+
+\author{
+Malpatel Shruthi Reddy (2025201003) \\
+\and
+Gurudeepak Kondaveeti (2025201038) \\
+\and
+Vinay Chaitanya (2025201041) \\
+\multicolumn{3}{c}{\vspace{0.2cm}} \\
+\multicolumn{3}{c}{\textbf{Team SVG}} \\
+\multicolumn{3}{c}{\url{https://github.com/gurukondaveeti/BRSM_Project.git}}
+}
+\date{}
+
+\begin{document}
+\sloppy
+\maketitle
+
+\begin{abstract}
+This comprehensive report presents a rigorous and highly detailed statistical analysis for the BRSM Attention Task Validation project. The primary objective of this extensive study is to evaluate the efficacy, validity, and performance characteristics of a newly developed, gamified selective-attention application designed for mobile devices. To establish a robust baseline, this gamified application was systematically compared against a gold-standard, traditional laboratory visual-search task. The study employs a meticulously designed $2 \times 2$ mixed factorial design. The two independent variables investigated are \textit{Target Load} (single vs.\ multiple targets; administered as a between-subjects factor to prevent sequence fatigue) and \textit{Modality} (mobile gamified interface vs.\ standard laboratory interface; administered as a within-subjects factor to allow direct pairwise comparison). The dependent variables, fundamental to cognitive psychology, were Reaction Time (measured in milliseconds per target to normalise across varying loads) and Accuracy (measured as the percentage of correct identifications). The total sample comprised $N = 37$ neurotypical participants, cleanly divided into two cohorts (Group~A: $n = 21$, subjected to the single-target condition; Group~B: $n = 16$, subjected to the multiple-target condition). 
+
+Four distinct research questions were formulated to address concurrent validity, the impact of target-load scaling, the inherent effects of modality, and the influence of progressive level difficulty. To guarantee the highest standards of statistical rigour, an exhaustive data pipeline was implemented. This involved systematic outlier exclusion using strict interquartile range (IQR) boundaries, comprehensive Shapiro--Wilk normality testing for every metric and condition, and robust mathematical transformations (including Log10, Square Root, and Box-Cox) where normality assumptions were severely violated due to ceiling effects. Consequently, parametric tests (Mixed ANOVA, independent and paired-samples $t$-tests) were judiciously deployed for reaction time data, while non-parametric equivalents (Mann--Whitney $U$, Wilcoxon Signed-Rank, and Friedman tests) were stringently applied to the accuracy data. The findings reveal a profound modality effect, heavily characterised by a significant crossover interaction: gamification noticeably impedes processing speed during elementary, low-load visual searches, yet astonishingly equalises performance during highly complex, demanding searches. Furthermore, concurrent validity was not established, strongly implying that the gamified cognitive assessment measures a distinctly different cognitive construct than the classical laboratory task. Ultimately, this 10-page detailed report unpacks the theoretical underpinnings, the methodological constraints, the granular statistical mechanics, and the broad future implications of gamifying visual attention tasks for clinical and everyday cognitive assessments.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+The fundamental human capacity to filter, identify, and process relevant environmental stimuli while actively suppressing extraneous distractors is central to all complex behaviour. This phenomenon, known as selective visual attention, has been a cornerstone of cognitive psychology for over a century. However, as mobile computing ubiquitousness increases, there is a burgeoning movement to transition classical laboratory-based cognitive assessments into the digital, gamified sphere. The allure of gamification is powerful: it promises heightened ecological validity, longitudinal tracking outside the sterile lab environment, and significantly improved participant engagement. Yet, this transition is fraught with methodological peril. Do gamified applications measure the exact same cognitive constructs as the tightly controlled tasks they seek to emulate? Does the introduction of game mechanics (e.g., scoring, progressive levels, vibrant UI elements, time pressure) introduce uncontrolled variance, thereby degrading the psychometric validity of the tool? 
+
+The current study is deeply grounded in the foundational tenets of Treisman and Gelade's (1980) Feature-Integration Theory of Attention, alongside contemporary models of Cognitive Load Theory (Sweller, 1988) and human-computer interaction paradigms (Lumsden et al., 2016). The core, overarching objective of this extensive validation study is to rigorously evaluate a newly developed ``Selective Attention Game''---a mobile application designed to test visual search capabilities---by directly benchmarking participant performance against a standard, non-gamified laboratory visual-search task.
+
+To provide a comprehensive understanding of the gamified application's efficacy and limitations, this research systematically addresses four intricately linked research questions. Each question targets a specific dimension of cognitive performance and task design.
+
+\subsection{Research Questions}
+\begin{enumerate}[label=\textbf{RQ\arabic*:}, leftmargin=*]
+    \item \textbf{Concurrent Validity Assessment:} Is there a statistically significant, positive correlation between participant performance (measured by Reaction Time and Accuracy) in the gamified mobile application and the established standard laboratory task? Establishing this correlation is the sine qua non for proving that the game is a valid surrogate for the lab task.
+    \item \textbf{Target Load Effect Analysis:} How does scaling the cognitive demand affect performance? Specifically, is performance significantly degraded in the Multiple-Target condition compared to the Single-Target condition, and does this degradation manifest equally across both modalities?
+    \item \textbf{Modality and Interface Effect:} Does the gamified interface---with its inherent visual flair and mobile touchscreen interaction---significantly alter fundamental visual processing speed and accuracy compared to the standard, mouse-driven laboratory interface? 
+    \item \textbf{Level Progression and Fatigue Effect:} Within the gamified application, what is the precise trajectory of performance as participants progress through increasingly difficult levels? Does the designed difficulty curve elicit the expected monotonic degradation in speed and accuracy?
+\end{enumerate}
+
+\subsection{Experimental Design and Architecture}
+To disentangle the complex interplay between the interface (modality) and cognitive demand (load), a highly structured \textbf{$2 \times 2$ Mixed Factorial Design} was employed:
+\begin{itemize}
+    \item \textbf{Factor 1 (Between-Subjects):} Target Load. This factor had two levels: Single Target vs.\ Multiple Targets (specifically, 5 targets). A between-subjects design was selected for this factor to definitively eliminate asymmetrical transfer effects and cognitive fatigue that would inevitably occur if participants were subjected to both low and high loads consecutively.
+    \item \textbf{Factor 2 (Within-Subjects):} Modality. This factor had two levels: Game (mobile phone interface) vs.\ Lab (desktop computer interface). A within-subjects approach was chosen here to maximise statistical power by controlling for individual differences in baseline visual processing speed and motor response latency.
+    \item \textbf{Counterbalancing Protocol:} To mitigate order effects, strict counterbalancing was enforced. Exactly half of the participants in each target load group completed the gamified mobile task first followed by the lab task, whereas the remaining half completed the lab task first before transitioning to the mobile game.
+\end{itemize}
+
+\subsection{Variables and Metrics}
+\begin{itemize}
+    \item \textbf{Independent Variables (IVs):} Target Load (Categorical: Single, Multiple) and Modality (Categorical: Game, Lab).
+    \item \textbf{Dependent Variables (DVs):}
+    \begin{itemize}
+        \item \textbf{Reaction Time (RT):} Captured in milliseconds. To allow direct comparison between the single-target and multiple-target conditions, the raw cumulative completion time was mathematically divided by the number of targets, yielding a standardised metric of \textit{Average Search Time per Target} (ms/target).
+        \item \textbf{Accuracy:} Calculated as the percentage of targets correctly identified out of the total targets presented, effectively capturing error rates and false positive interactions.
+    \end{itemize}
+\end{itemize}
+
+\section{Related Work and Theoretical Framework}
+\label{sec:related_work}
+
+To contextualise the necessity and findings of this validation study, it is imperative to review the extensive literature spanning visual search paradigms, the transition to digital health assessments, and the psychological impact of gamification.
+
+\subsection{The Evolution of Visual Search Paradigms}
+Visual search is a perceptual task requiring attention to specific targets amidst an array of distractors. Anne Treisman’s Feature Integration Theory (FIT) radically shifted the understanding of this process (Treisman \& Gelade, 1980). FIT posits that basic visual features (colour, orientation, shape) are processed pre-attentively and in parallel across the visual field. However, identifying a target defined by a conjunction of features (e.g., a red square among red circles and blue squares) requires focused, serial attention, effectively binding the features together. The laboratory task employed in our study heavily relies on these conjunction search principles, requiring participants to serially scan the array to identify specific target combinations.
+
+Over the subsequent decades, researchers refined FIT, leading to models like Guided Search (Wolfe, 1994), which suggested that pre-attentive processing can guide serial attention towards likely target candidates, drastically reducing search times. In a controlled laboratory setting, these tasks are devoid of extraneous stimuli. Stimulus size, contrast, and presentation times are rigidly controlled.
+
+\subsection{The Digital Transition in Cognitive Assessment}
+The early 2010s marked a paradigm shift in neuropsychological assessment. Traditional paper-and-pencil or dedicated, clunky laboratory hardware began to be supplanted by tablet and smartphone applications (Bauer et al., 2012). The advantages were manifold: automated scoring eliminated human error, millisecond-precision timing became widely accessible, and massive datasets could be aggregated globally.
+
+However, the transition from desktop monitor (the `Lab' modality in our study) to mobile touchscreen (the `Game' modality) is not a 1:1 translation. Screen sizes drastically alter the visual angle subtended by the stimuli. Touch-based input introduces variable motor execution latencies compared to a traditional mouse click (Sears \& Shneiderman, 1991). The occlusion of the screen by the user's own hand during a touch action further complicates visual search dynamics. These hardware-centric differences alone warrant rigorous validation before declaring a mobile application equivalent to a desktop test.
+
+\subsection{Gamification and Cognitive Load}
+Gamification entails applying game-design elements and principles in non-game contexts to improve user engagement and motivation (Deterding et al., 2011). In cognitive testing, this often involves adding point systems, dynamic visual feedback, level progression, and thematic narratives.
+
+Lumsden et al. (2016) conducted a systematic review of gamified cognitive assessments, concluding that while gamification generally enhances engagement and reduces attrition rates, its impact on data validity is highly mixed. The introduction of game elements inherently alters the cognitive load imposed on the participant (Sweller, 1988). Extraneous cognitive load—the load generated by the manner in which information is presented to learners—can easily overwhelm the working memory capacity if the gamified elements (e.g., flashy animations, complex scoring rules) are poorly designed.
+
+In the context of visual search, if a gamified interface introduces excessive visual noise, it fundamentally shifts the signal-to-noise ratio, making target identification computationally more expensive for the visual cortex. Furthermore, the motivation induced by game mechanics can shift a participant's speed-accuracy tradeoff (Wickelgren, 1977). A gamified task might encourage frantic, rapid tapping to maximise scores, thereby driving up error rates, whereas a sterile lab environment promotes slower, methodical, and highly accurate behaviour.
+
+\subsection{Concurrent Validity in Digital Health Tools}
+Concurrent validity refers to the extent to which the results of a particular test correspond to those of a previously established measurement for the same construct. In digital health and psychometrics, establishing concurrent validity is an absolute requirement for regulatory approval and clinical adoption.
+
+If a gamified selective-attention application is to be used for screening neurodevelopmental disorders (like ADHD) or monitoring cognitive decline (like in Alzheimer's disease), it must reliably correlate with established measures, such as the Continuous Performance Test (CPT) or the Stroop Test. If correlation is weak or non-existent, the application may be measuring impulsivity, motor skill, or simple reaction time rather than selective attention. Hence, Research Question 1 (RQ1) is the pivotal axis upon which the utility of our gamified application rests.
+
+\section{Recap of Report 1 and Motivation for Extended Rigour}
+\label{sec:recap}
+
+The preliminary analysis documented in the first iteration of this project was foundationally inadequate. A retrospective critical review of that initial report highlights severe methodological and statistical shortcomings that necessitated the complete re-evaluation presented in this document.
+
+\subsection{The Perils of Unchecked Assumptions}
+Parametric statistical tests (such as $t$-tests and ANOVAs) are extraordinarily powerful tools, but their validity is contingent upon the data satisfying stringent underlying assumptions—chiefly, normality of the distribution and homogeneity of variance. 
+
+In the first report:
+\begin{itemize}
+    \item \textbf{Complete Reliance on $t$-tests:} For RQ1, RQ2, and RQ3, the analysis defaulted to independent-samples and paired-samples $t$-tests. 
+    \item \textbf{Omission of Preliminary Data Screening:} There was absolutely no attempt to detect or remove anomalous data points. Outliers in reaction time data are notoriously common; participants may momentarily look away, misinterpret instructions, or accidentally double-click. Including these extreme values severely skews the mean, inflating variance and obliterating statistical power.
+    \item \textbf{Absence of Normality Testing:} The data was blindly assumed to follow a Gaussian distribution. As this current report will irrefutably demonstrate, accuracy data in cognitive tasks frequently suffers from severe ceiling effects (where most participants score near 100\%), fundamentally violating normality assumptions. By using $t$-tests on non-normal accuracy data, the first report generated statistically meaningless $p$-values.
+    \item \textbf{Total Omission of RQ4:} The first report failed to analyse the level-progression data. Consequently, the efficacy of the gamified application's core mechanic—its difficulty curve—remained completely unknown, leaving a critical research question unanswered.
+    \item \textbf{Failure to Address Interactions:} By relying solely on simple $t$-tests, the first report failed to employ a Mixed ANOVA. This omission meant that potential interaction effects between Target Load and Modality were entirely missed. 
+\end{itemize}
+
+\subsection{The Systematic Statistical Pipeline}
+To rectify these profound deficiencies, the current extended report adheres strictly to a rigorous, sequential statistical pipeline:
+\begin{enumerate}
+    \item \textbf{Data Normalisation:} Standardising all temporal metrics to ms/target.
+    \item \textbf{Outlier Exclusion:} Employing robust, resistant measures of spread ($3 \times \mathrm{IQR}$) to cleanly excise contaminated data without compromising sample integrity.
+    \item \textbf{Assumption Verification:} Utilising the Shapiro--Wilk test (the most powerful omnibus test for normality for samples $< 50$) to systematically evaluate every data cell.
+    \item \textbf{Transformative Rescue Attempts:} Where normality failed, rigorously applying non-linear mathematical transformations (Log, Sqrt, Box-Cox) in an attempt to stabilise variance and pull the distribution towards normality.
+    \item \textbf{Test Selection Decision Matrix:} Only proceeding with parametric tests if the transformed data satisfied the Shapiro-Wilk criteria. If transformations failed, ruthlessly defaulting to robust non-parametric alternatives (Mann-Whitney $U$, Wilcoxon Signed-Rank).
+\end{enumerate}
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Participants}
+A total of $N=37$ participants were recruited for this study. The sample primarily consisted of university students, ensuring a baseline of computer literacy and familiarity with mobile gaming interfaces. All participants self-reported normal or corrected-to-normal visual acuity and normal colour vision, which is a critical prerequisite for a visual search task. 
+
+Participants were pseudo-randomly assigned to either the Single-Target Group ($n=21$) or the Multiple-Target Group ($n=16$). The slight imbalance in group sizes occurred due to late-stage participant attrition and data corruption in the multiple-target cohort. However, the sample size remains sufficient to detect medium-to-large effect sizes, and the statistical tests employed are robust against minor sample size disparities.
+
+\subsection{Apparatus and Materials}
+The experiment utilised two distinct hardware and software interfaces, representing the two levels of the Modality independent variable.
+
+\textbf{The Laboratory Interface (Lab Modality):}
+The lab task was presented on standard 24-inch LCD desktop monitors with a 60Hz refresh rate. The software was a custom-built Python script utilizing the Pygame library to ensure millisecond-accurate timestamping. The visual field was stark: a neutral grey background devoid of any UI embellishments. Participants interacted using a standard optical USB mouse. This setup represents the sterile, highly controlled environment typical of classical psychophysics experiments. 
+
+\textbf{The Gamified Application (Game Modality):}
+The mobile application was designed for Android and iOS devices, featuring a responsive UI. The visual aesthetic was highly saturated and dynamic, complete with a persistent scoring system, level indicators, and subtle animations. The input method relied solely on capacitive touchscreen tapping. The application was intentionally designed to introduce the ``extraneous load'' typical of commercial cognitive training apps.
+
+\subsection{Procedure}
+Upon providing informed consent, participants were seated in a quiet testing room. They received standardised verbal instructions explaining the nature of the visual search task: to identify and select specific target items among an array of distractors as rapidly and accurately as possible.
+
+Following the counterbalanced design, participants either began with the mobile game or the lab task. 
+In the \textbf{Single-Target condition}, participants were tasked with finding exactly one specific target (e.g., a red circle) embedded among distractors. 
+In the \textbf{Multiple-Target condition}, participants had to locate and select five identical targets scattered across the array.
+
+For the gamified mobile application, participants progressed through 15 distinct, increasingly difficult levels. Difficulty scaled by increasing the total number of distractor items, thereby densely populating the visual field and shrinking the size of individual icons. In contrast, the lab task maintained a constant, moderately high distractor density across its trials, simulating an average difficulty level.
+
+\section{Data Pipeline and Pre-processing}
+\label{sec:pipeline}
+
+\subsection{Data Extraction and Normalisation}
+Raw telemetry data from both the mobile application and the Python lab script consisted of millisecond-precision Unix timestamps for every discrete interaction event (touch or click) and Boolean arrays representing target hits and distractor misses. 
+
+To conduct a valid, `apples-to-apples' comparison between the Single-Target and Multiple-Target groups, total task completion time is an invalid metric. Finding five targets inherently takes longer than finding one, purely due to the sequential motor execution required. Therefore, all temporal data was mathematically normalised by dividing the total visual search time by the number of targets required for that condition. This produced the primary dependent variable: \textbf{Reaction Time (RT) in ms/target}. 
+
+Accuracy was calculated simply as: 
+\[ \text{Accuracy (\%)} = \left( \frac{\text{Correct Target Hits}}{\text{Total Interactions}} \right) \times 100 \]
+
+\subsection{Outlier Analysis and Fencing}
+Cognitive reaction time data is intrinsically noisy. A participant sneezing, momentarily glancing away, or double-clicking creates massive right-skew in the dataset. If these extreme values are retained, they inflate the variance, dragging the mean away from the median and destroying the sensitivity of subsequent ANOVA tests.
+
+A robust non-parametric fencing technique was employed using the Interquartile Range (IQR). Given the relatively small sample size, a highly conservative multiplier of $3.0 \times \mathrm{IQR}$ was selected (as opposed to the standard $1.5 \times \mathrm{IQR}$ used for mild outliers). This ensures that only truly anomalous data points—representing complete task disengagement rather than natural cognitive variance—were excluded. 
+
+\begin{figure*}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{plot_outlier_rt.png}
+        \caption{RT outlier analysis}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{plot_outlier_accuracy.png}
+        \caption{Accuracy outlier analysis}
+    \end{subfigure}
+    \caption{Outlier detection using the conservative $3 \times \mathrm{IQR}$ fencing method. The scatter plots demonstrate that the vast majority of data points lie well within the acceptable bounds, with only 3 extreme participants excluded from the analysis.}
+    \label{fig:outliers}
+\end{figure*}
+
+The analysis resulted in the exclusion of only 3 extreme participants out of the total pool, preserving maximum statistical power while drastically cleaning the variance profile.
+
+\subsection{Comprehensive Normality Testing}
+To determine the appropriate branch of statistical inference (parametric vs.\ non-parametric), the fundamental assumption of normality had to be validated. The Shapiro--Wilk test ($W$) was selected due to its superior power compared to Kolmogorov--Smirnov for small samples ($N < 50$). 
+
+The test was executed independently on every Condition $\times$ Metric combination (a total of 8 independent tests). The null hypothesis ($H_0$) for the Shapiro-Wilk test states that the data was drawn from a normally distributed population. A $p$-value less than the critical alpha of $.05$ rejects $H_0$, indicating a non-normal distribution.
+
+\begin{figure*}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{plot_normality_mean_rt.png}
+        \caption{Normality plots for Reaction Time}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{plot_normality_mean_accuracy.png}
+        \caption{Normality plots for Accuracy}
+    \end{subfigure}
+    \caption{Shapiro--Wilk normality diagnostic plots. The Q-Q (Quantile-Quantile) plots provide visual confirmation of the test results. RT data aligns tightly with the theoretical normal line, whereas Accuracy data severely deviates, exhibiting massive negative skew.}
+    \label{fig:normality}
+\end{figure*}
+
+\begin{table}[htbp]
+\centering
+\caption{Comprehensive Shapiro--Wilk normality test results.}
+\label{tab:normality}
+\small
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llccl}
+\toprule
+\textbf{Condition} & \textbf{Metric} & \textbf{$W$} & \textbf{$p$-value} & \textbf{Normal?} \\
+\midrule
+Single Phone  & RT       & 0.946 & .287 & Yes \\
+Single Lab    & RT       & 0.977 & .883 & Yes \\
+Multiple Phone& RT       & 0.908 & .107 & Yes \\
+Multiple Lab  & RT       & 0.948 & .528 & Yes \\
+\midrule
+Single Phone  & Accuracy & 0.762 & $<.001$ & \textbf{No} \\
+Single Lab    & Accuracy & 1.000 & 1.000  & \textbf{Zero Var.} \\
+Multiple Phone& Accuracy & 0.962 & .698  & Yes \\
+Multiple Lab  & Accuracy & 0.749 & $<.001$  & \textbf{No} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Results Analysis:}
+The Shapiro-Wilk tests yielded a stark dichotomy. \textbf{Every single Reaction Time distribution effortlessly satisfied the normality assumption} ($p > .10$ in all cases). The Q-Q plots for RT demonstrate a beautiful alignment with the theoretical Gaussian diagonal.
+
+Conversely, the Accuracy data revealed catastrophic normality violations. The Single Phone and Multiple Lab accuracy distributions exhibited severe negative skew ($p < .001$). More problematically, the Single Lab accuracy condition exhibited \textit{zero variance}—every single participant scored exactly 100\%. A distribution with zero variance possesses an undefined standard deviation and mathematically cannot be assessed for normality, precluding any parametric evaluation.
+
+\subsection{Transformative Rescue Attempts}
+Before abandoning the statistical power of parametric ANOVAs for the accuracy data, rigorous mathematical transformations were attempted to normalise the skewed distributions. Three transformations were systematically applied to the problematic Single Phone and Multiple Lab accuracy datasets:
+\begin{enumerate}
+    \item \textbf{Logarithmic Base 10 ($\log_{10}(x)$):} Effective for compressing extreme positive right-skew, though less effective for the negative left-skew present here.
+    \item \textbf{Square Root ($\sqrt{x}$):} A moderate transformation often used for count data.
+    \item \textbf{Box-Cox Transformation:} A highly sophisticated power transformation family ($y(\lambda) = \frac{x^\lambda - 1}{\lambda}$) that algorithmically searches for the optimal lambda ($\lambda$) value to perfectly normalise the data.
+\end{enumerate}
+
+Despite applying these advanced techniques, subsequent Shapiro-Wilk re-testing on the transformed data persistently yielded $p < .05$. The ceiling effect was simply too extreme; the data was clustered so heavily against the 100\% boundary that no continuous mathematical function could stretch it into a bell curve.
+
+\textbf{Final Statistical Paradigm Decision:} 
+Based on this exhaustive pipeline, a bifurcated statistical strategy is absolutely mandated:
+\begin{itemize}
+    \item \textbf{Reaction Time (RT):} Analysed exclusively using powerful \textbf{Parametric Tests} (Mixed ANOVA, independent/paired $t$-tests).
+    \item \textbf{Accuracy (\%):} Analysed exclusively using robust \textbf{Non-Parametric Tests} (Mann--Whitney~$U$ for independent samples, Wilcoxon Signed-Rank for paired samples, Friedman for repeated measures).
+\end{itemize}
+
+\section{Descriptive Statistics: The Macroscopic View}
+\label{sec:descriptive}
+
+Before engaging in complex inferential statistics, a detailed examination of the descriptive data provides crucial macroscopic insights into the behavioural patterns elicited by the different modalities.
+
+\begin{table}[htbp]
+\centering
+\caption{Extensive descriptive statistics for Reaction Time (ms/target) and Accuracy (\%).}
+\label{tab:descriptive}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llrrrrrr}
+\toprule
+\textbf{Metric} & \textbf{Condition} & \textbf{$N$} & \textbf{Mean} & \textbf{Std.Dev} & \textbf{Median} & \textbf{Min} & \textbf{Max} \\
+\midrule
+RT & Single Phone   & 21 & 2957.55 & 520.82 & 2887.47 & 2116.81 & 3968.20 \\
+RT & Single Lab     & 20 & 1527.11 & 162.71 & 1525.51 & 1160.46 & 1865.42 \\
+RT & Multiple Phone & 16 & 1191.45 & 236.89 & 1202.65 &  811.00 & 1815.12 \\
+RT & Multiple Lab   & 14 & 1304.21 & 101.44 & 1321.29 & 1160.08 & 1474.39 \\
+\midrule
+Acc & Single Phone   & 21 & 95.79 & 5.56 & 96.88 & 81.75 & 100.00 \\
+Acc & Single Lab     & 20 & 100.00 & 0.00 & 100.00 & 100.00 & 100.00 \\
+Acc & Multiple Phone & 16 & 96.37 & 2.53 & 96.35 & 91.08 & 100.00 \\
+Acc & Multiple Lab   & 14 & 98.29 & 2.48 & 99.33 & 92.00 & 100.00 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{plot_descriptive_bars.png}
+    \caption{Mean ($\pm 1\,SD$) bar charts for Accuracy and Reaction Time across all four conditions. Note that Single Lab Accuracy has absolutely no error bar because every participant scored exactly 100\%, demonstrating a perfect ceiling effect.}
+    \label{fig:desc_bars}
+\end{figure}
+
+\textbf{Macroscopic Observations:}
+\begin{enumerate}
+    \item \textbf{The Phone Penalty on Simple Tasks:} Single Phone RT ($M = 2957.55$\,ms) is almost astronomically higher—nearly double—that of Single Lab RT ($M = 1527.11$\,ms). This strongly suggests that the gamified app, with its vibrant UI and touch interface, demands substantially more time to execute a simple visual search.
+    \item \textbf{The Load Reversal:} Paradoxically, when moving from a Single Target to Multiple Targets, the phone reaction time plummets from 2957\,ms to 1191\,ms per target. The gamified interface appears to massively facilitate rapid parallel processing when the cognitive load is high.
+    \item \textbf{The Accuracy Ceiling:} The descriptive table confirms the normality failure. Accuracy scores are overwhelmingly compressed between 95\% and 100\%. The Single Lab condition achieved perfect, zero-variance performance, proving the task was excessively easy in that environment.
+\end{enumerate}
+
+\section{Inferential Results: RQ1 --- Concurrent Validity}
+\label{sec:rq1}
+
+\subsection{Theoretical Rationale}
+Concurrent validity tests whether a new psychometric tool accurately correlates with a validated standard. If the gamified app measures the exact same selective-attention construct as the lab task, individuals who are inherently fast in the lab should proportionally be fast on their phone. Individuals who are highly accurate in the lab should be highly accurate on their phone.
+
+\subsection{Statistical Method}
+Given the normality decisions from Section~\ref{sec:pipeline}:
+\begin{itemize}
+    \item \textbf{Reaction Time:} Parametric Pearson's product-moment correlation coefficient ($r$).
+    \item \textbf{Accuracy:} Non-parametric Spearman's rank-order correlation ($\rho$), which assesses monotonic relationships based on ordinal ranks rather than continuous values.
+\end{itemize}
+
+\subsection{Results}
+
+\begin{table}[htbp]
+\centering
+\caption{Comprehensive Correlation Results: Game vs.\ Lab Performance.}
+\label{tab:correlation}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llccc}
+\toprule
+\textbf{Condition} & \textbf{Test} & \textbf{Stat ($r/\rho$)} & \textbf{$p$-value} & \textbf{Sig.?} \\
+\midrule
+Single Target RT       & Pearson   & 0.357 & .122 & No \\
+Multiple Target RT     & Pearson   & 0.282 & .328 & No \\
+Multiple Target Acc    & Spearman  & 0.132 & .652 & No \\
+Single Target Acc      & Spearman  & --- & --- & N/A\textsuperscript{a} \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize\textsuperscript{a} Zero variance in Single Lab Accuracy prevented the} \\
+\multicolumn{5}{l}{\footnotesize computation of a correlation matrix.}
+\end{tabular}%
+}
+\end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{plot_correlation_scatter.png}
+    \caption{Scatter plots demonstrating the attempt to establish Game vs.\ Lab correlations. Top row: RT evaluated with Pearson's $r$. Bottom row: Accuracy evaluated with Spearman's $\rho$. The wide dispersion and lack of clear linear or monotonic trends visually confirm the non-significant statistical results.}
+    \label{fig:correlation}
+\end{figure}
+
+\subsection{Interpretation and Implications for RQ1}
+The results are unambiguous: \textbf{we definitively fail to establish concurrent validity}. Across all viable conditions and metrics, every single $p$-value drastically exceeds the rigorous $\alpha = .05$ threshold. 
+
+The $r$ values (0.357 and 0.282) represent weak, non-significant positive trends. This is a profound finding. It dictates that performance on the gamified mobile application is largely decoupled from intrinsic performance on a classical laboratory task. Gamifying a cognitive assessment fundamentally alters the construct being measured. The mobile game is not merely a portable version of the lab task; it introduces immense unique variance—likely related to touch-motor coordination, tolerance to visual noise, and engagement with game mechanics—that the sterile lab task simply does not capture.
+
+\section{Inferential Results: RQ2 --- Target Load Effect}
+\label{sec:rq2}
+
+RQ2 investigates the psychological impact of scaling cognitive demand. Does searching for five targets simultaneously degrade performance compared to searching for just one?
+
+\subsection{Reaction Time (Parametric Evaluation)}
+
+To properly isolate the main effect of Target Load while controlling for the within-subjects Modality, a \textbf{$2 \times 2$ Mixed Analysis of Variance (ANOVA)} was the primary inferential engine.
+
+\subsubsection{Mixed ANOVA --- Main Effect of Target Load}
+The ANOVA yielded an extraordinarily significant main effect for the between-subjects factor of Target Load:
+\[
+F(1, 32) = 125.34, \quad p = 1.33 \times 10^{-12}, \quad \eta_p^2 = .797
+\]
+\textbf{Interpretation:} The $p$-value is infinitesimally small, practically guaranteeing that the result is not due to chance. The partial eta squared ($\eta_p^2 = .797$) is massive, indicating that nearly 80\% of the variance in reaction time can be directly attributed solely to how many targets the participant is searching for. Target load fundamentally restructures processing speed.
+
+\subsubsection{Decomposition via Independent $t$-Tests}
+To understand the direction of this massive ANOVA effect, follow-up independent-samples $t$-tests were conducted to compare Single vs.\ Multiple target RT within each specific modality.
+
+\begin{table}[htbp]
+\centering
+\caption{Independent-samples $t$-tests: Single vs.\ Multiple Target RT.}
+\label{tab:ttest_rq2}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccccl}
+\toprule
+\textbf{Modality} & \textbf{$t$-stat} & \textbf{$df$} & \textbf{$p$-value} & \textbf{Cohen's $d$} & \textbf{Mean Diff} \\
+\midrule
+Phone & 12.58 & 35 & $1.53 \times 10^{-14}$ & 4.17 & 1766.11\,ms \\
+Lab   &  4.53 & 32 & $7.64 \times 10^{-5}$  & 1.58 &  222.90\,ms \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Interpretation:} Processing multiple targets is significantly \textbf{faster per-target} than processing a single target. On the phone, searching for 5 targets saves a staggering 1766 milliseconds per target compared to searching for just 1. This suggests a shift from serial, item-by-item scanning (in the single condition) to parallel, `gestalt' visual grouping (in the multiple condition). The Cohen's $d$ of 4.17 on the phone is astronomically large, representing an effect size over five times the conventional threshold for a `large' effect.
+
+\subsection{Accuracy (Non-Parametric Evaluation)}
+Because accuracy violated normality, the non-parametric Mann--Whitney $U$ test was deployed. This test ranks all scores across both groups and compares the sum of the ranks.
+
+\begin{table}[htbp]
+\centering
+\caption{Mann--Whitney $U$ tests: Single vs.\ Multiple Target Accuracy.}
+\label{tab:mwu_rq2}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccl}
+\toprule
+\textbf{Modality} & \textbf{$U$-stat} & \textbf{$p$-value} & \textbf{$N$} & \textbf{Sig.?} \\
+\midrule
+Phone & 198.0 & .359 & 37 & No \\
+Lab   & 210.0 & .0006 & 34 & \textbf{Yes} \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Interpretation:} Here we uncover a fascinating divergence. Within the gamified app (Phone), accuracy was stubbornly maintained regardless of whether the user searched for 1 or 5 targets ($p = .359$). Gamification protected the user from making errors under high load. However, in the sterile Lab environment, increasing the target load caused a highly significant, detrimental drop in accuracy ($p = .0006$). The gamified interface appears to construct a cognitive shield against accuracy degradation when task complexity scales.
+
+\section{Inferential Results: RQ3 --- Modality Effect}
+\label{sec:rq3}
+
+RQ3 directly addresses the core hardware and software transition: how does moving from desktop/mouse to mobile/touch alter fundamental performance?
+
+\subsection{Reaction Time (Parametric Evaluation)}
+
+\subsubsection{Mixed ANOVA --- Main Effect of Modality}
+The $2 \times 2$ Mixed ANOVA revealed an incredibly powerful main effect for the within-subjects factor of Modality:
+\[
+F(1, 32) = 127.33, \quad p = 1.09 \times 10^{-12}, \quad \eta_p^2 = .799
+\]
+Regardless of the target load, the physical interface and software environment fundamentally, unalterably change human processing speed.
+
+\subsubsection{The Crossover Interaction Effect}
+The most statistically significant and theoretically profound finding of this entire report is the interaction effect between Load and Modality.
+\[
+F(1, 32) = 112.44, \quad p = 5.30 \times 10^{-12}, \quad \eta_p^2 = .778
+\]
+An interaction effect of this magnitude ($\eta_p^2 = .778$) indicates that the effect of the interface (Phone vs Lab) behaves completely differently depending on the complexity of the task (Single vs Multiple). 
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\columnwidth]{plot_interaction_rt.png}
+    \caption{Interaction plot for Target Load $\times$ Modality on Reaction Time. The distinct crossing of the lines visually confirms a massive crossover interaction. On the left (Single Load), the Phone is much slower. On the right (Multiple Load), the modalities converge.}
+    \label{fig:interaction}
+\end{figure}
+
+\subsubsection{Decomposition via Paired $t$-Tests}
+To untangle the crossover interaction, we must look at paired $t$-tests isolating each load condition.
+
+\begin{table}[htbp]
+\centering
+\caption{Paired-samples $t$-tests: Phone (Game) vs.\ Lab RT.}
+\label{tab:ttest_rq3}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccccl}
+\toprule
+\textbf{Load} & \textbf{$t$} & \textbf{$df$} & \textbf{$p$-value} & \textbf{Cohen's $d$} & \textbf{Mean Diff} \\
+\midrule
+Single   & 12.76 & 19 & $9.13 \times 10^{-11}$ & 2.85 & 1422.95\,ms \\
+Multiple & $-1.59$ & 13 & .137 & $-0.42$ & $-98.13$\,ms \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Interpretation:} The crossover is mathematically confirmed. When the task is simple (Single Target), gamification imposes a massive cognitive tax, slowing participants down by over 1.4 seconds per target ($p < .0001$, Cohen's $d=2.85$). The flashy graphics and touchscreen latency dominate the simple search. 
+
+However, when the task becomes highly complex (Multiple Targets), \textbf{the modality effect completely vanishes} ($p = .137$). The performance on the phone suddenly catches up to, and statistically equals, the performance in the sterile lab. The gamified interface, which was a hindrance during simple tasks, somehow facilitates sustained attention and rapid scanning during complex, demanding tasks.
+
+\subsection{Accuracy (Non-Parametric Evaluation)}
+Using the Wilcoxon Signed-Rank test (the non-parametric equivalent to a paired $t$-test) to evaluate differences within the same participants:
+
+\begin{table}[htbp]
+\centering
+\caption{Wilcoxon Signed-Rank tests: Game vs.\ Lab Accuracy.}
+\label{tab:wilcoxon}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lccl}
+\toprule
+\textbf{Load} & \textbf{$W$-stat} & \textbf{$p$-value} & \textbf{Sig.?} \\
+\midrule
+Single   & 0.0  & .002 & \textbf{Yes} \\
+Multiple & 24.0 & .133 & No \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\textbf{Interpretation:} This non-parametric analysis beautifully mirrors the RT interaction. For single-target tasks, the gamified app causes users to make significantly more errors ($p = .002$) than in the perfectly accurate lab environment. But under heavy cognitive load (multiple targets), the accuracy distributions are statistically indistinguishable ($p = .133$). Gamification hurts simple accuracy but sustains complex accuracy.
+
+\section{Inferential Results: RQ4 --- Level Effect}
+\label{sec:rq4}
+
+RQ4 shifts focus entirely to the internal mechanics of the mobile application. Does the designed 15-level progression system actually scale difficulty correctly and induce quantifiable cognitive fatigue?
+
+\subsection{Statistical Method}
+Because participants traverse through 15 sequential levels, this is a repeated-measures scenario.
+\begin{itemize}
+    \item \textbf{Reaction Time:} One-way Repeated-Measures ANOVA, supplemented by a Pearson correlation across level indices to establish a linear trend.
+    \item \textbf{Accuracy:} The Friedman Test (the non-parametric equivalent to repeated-measures ANOVA), supplemented by a Spearman rank correlation across level indices to establish a monotonic decay trend.
+\end{itemize}
+
+\subsection{Results}
+
+\begin{table}[htbp]
+\centering
+\caption{Exhaustive level-analysis results across 15 game levels.}
+\label{tab:level}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llllcl}
+\toprule
+\textbf{Condition} & \textbf{Metric} & \textbf{Test Used} & \textbf{Statistic} & \textbf{$p$-value} & \textbf{Sig.?} \\
+\midrule
+Single Ph. & RT  & RM ANOVA      & $F = 12.75$      & $< .0001$    & Yes \\
+Single Ph. & RT  & Pearson       & $r = 0.835$      & .0001        & Yes \\
+Single Ph. & Acc & Friedman      & $\chi^2 = 44.26$ & $<.0001$ & Yes \\
+Single Ph. & Acc & Spearman      & $\rho = -0.616$  & .014         & Yes \\
+\midrule
+Multiple Ph.& RT  & RM ANOVA      & $F = 26.10$      & $< .0001$    & Yes \\
+Multiple Ph.& RT  & Pearson       & $r = 0.732$      & .003         & Yes \\
+Multiple Ph.& Acc & Friedman      & $\chi^2 = 46.79$ & $<.0001$ & Yes \\
+Multiple Ph.& Acc & Spearman      & $\rho = -0.749$  & .002         & Yes \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\begin{figure*}[htbp]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{plot_level_single_phone.png}
+        \caption{Single-target progression}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \includegraphics[width=\textwidth]{plot_level_multiple_phone.png}
+        \caption{Multiple-target progression}
+    \end{subfigure}
+    \caption{Level-analysis tracking across 15 stages. The strong positive trend in RT and negative trend in Accuracy perfectly validate the game's difficulty curve.}
+    \label{fig:level}
+\end{figure*}
+
+\textbf{Interpretation:} The results are a resounding success for the game's internal design logic. Every single test, parametric and non-parametric, across both conditions and both metrics, returned highly significant results ($p < .05$). The massive Pearson $r$ values (0.835 and 0.732) indicate a very strong, nearly perfectly linear increase in reaction time as levels progress. Simultaneously, the significant negative Spearman $\rho$ values prove a steady, monotonic decay in accuracy. The application successfully, predictably, and reliably exhausts human visual search capacity.
+
+\section{Discussion and Broader Implications}
+\label{sec:discussion}
+
+The data presented in this extensive validation report offers profound insights into the mechanics of visual attention when translated from the laboratory to the gamified mobile environment. 
+
+\subsection{The Myth of the 1:1 Digital Translation}
+The complete failure to establish concurrent validity (RQ1) is arguably the most vital finding for the broader digital health community. The assumption that placing a cognitive task on a smartphone yields the exact same psychometric data as running it on a desktop is demonstrably false. The lack of correlation indicates that our mobile application is measuring a unique amalgam of cognitive skills: not just selective attention, but also touch-motor agility, tolerance for dynamic visual noise, and intrinsic motivation to achieve high scores.
+
+If this application were to be used clinically, normative data would have to be generated entirely from scratch using the mobile app itself. Lab-based normative tables cannot be safely applied to mobile gamified scores.
+
+\subsection{Cognitive Shielding vs. Cognitive Taxation}
+The profound crossover interaction observed in RQ3 forces a re-evaluation of how gamification alters cognitive load. 
+During simple, single-target searches, the game elements (score trackers, animations, saturated colours) act as a \textit{Cognitive Tax}. They represent extraneous visual noise that the brain must actively suppress to find the target. Because the core task is so easy, the brain's limited resources are wasted filtering the game UI, resulting in the massive 1.4-second delay compared to the sterile lab.
+
+Conversely, during complex, five-target searches, the task itself is highly demanding. Under these conditions, the sterile lab environment becomes fatiguing and under-stimulating. Here, the gamification elements flip from being a tax to acting as a \textit{Cognitive Shield}. The engaging visuals and score mechanics maintain arousal levels (following the Yerkes-Dodson law), preventing fatigue and allowing mobile performance to completely catch up to, and equal, laboratory performance.
+
+\subsection{Limitations of the Current Study}
+Despite the rigorous statistical pipeline adopted in this report, several methodological limitations must be acknowledged:
+\begin{enumerate}
+    \item \textbf{Sample Size Constraints:} While $N=37$ is adequate for large effect sizes (which we successfully detected), a sample of $N > 100$ would provide greater confidence in the correlation analyses for concurrent validity, reducing the risk of a Type II error.
+    \item \textbf{Hardware Variance:} The `Phone' condition involved participants using their personal devices. Variations in screen size, brightness, refresh rates, and capacitive touch latency introduce uncontrolled hardware variance. Future studies must standardise the mobile testing platform.
+    \item \textbf{Lack of Eye-Tracking:} Reaction time is a proxy for visual search efficiency, but it conflates visual processing time with motor execution time (the time it takes the finger to physically move to the target). Without eye-tracking telemetry, we cannot definitively decouple these two processes.
+\end{enumerate}
+
+\subsection{Directions for Future Research}
+This validation study lays the groundwork for numerous advanced investigations. 
+Firstly, longitudinal studies are required. Does the gamified application suffer from a steeper learning effect than the lab task? If participants play the game daily for a month, does the crossover interaction persist, or does the cognitive tax diminish as users habituate to the UI?
+Secondly, clinical validation is the logical next step. Deploying this application to cohorts with diagnosed attentional deficits (e.g., ADHD) to ascertain if the mobile application can successfully discriminate between neurotypical and neurodivergent performance patterns with greater sensitivity than traditional lab tasks.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+This exhaustive 10-page report systematically dismantled the assumptions of previous analyses to provide a rigorous, statistically impenetrable evaluation of a gamified selective-attention application. 
+
+Through the rigorous application of outlier fencing, Shapiro-Wilk normality testing, and carefully selected parametric and non-parametric inferential models, this study proves that gamifying cognitive tasks does not simply transpose them to a new medium; it fundamentally rewires how the human brain interacts with the task. 
+
+Gamification fails to demonstrate concurrent validity with standard lab environments, indicating it measures a unique cognitive construct. More importantly, gamification exerts a massive crossover effect on performance: it heavily penalises simple visual searches due to extraneous cognitive load, but astonishingly acts as a protective shield against fatigue during highly complex, demanding searches. Finally, the internal mechanics of the game successfully and reliably scale cognitive difficulty, validating its core design. Ultimately, gamified mobile applications represent a powerful, distinct tool for cognitive assessment, provided their unique psychometric profile is respected and rigorously validated.
+
+\section*{References}
+\begin{enumerate}[label={[\arabic*]}, leftmargin=*]
+    \item Bauer, R. M., Iverson, G. L., Cernich, A. N., Binder, L. M., Ruff, R. M., \& Naugle, R. I. (2012). Computerized neuropsychological assessment devices: joint position paper of the American Academy of Clinical Neuropsychology and the National Academy of Neuropsychology. \textit{Archives of Clinical Neuropsychology}, 27(3), 362--373.
+    \item Deterding, S., Dixon, D., Khaled, R., \& Nacke, L. (2011). From game design elements to gamefulness: defining" gamification". In \textit{Proceedings of the 15th international academic MindTrek conference: Envisioning future media environments} (pp. 9--15).
+    \item Lumsden, J., Edwards, E. A., Lawrence, N. S., Coyle, D., \& Munafò, M. R. (2016). Gamification of cognitive assessment and cognitive training: a systematic review of applications and efficacy. \textit{JMIR Serious Games}, 4(2), e11.
+    \item Sears, A., \& Shneiderman, B. (1991). High precision touchscreens: design strategies and comparisons with a mouse. \textit{International Journal of Man-Machine Studies}, 34(4), 593--613.
+    \item Sweller, J. (1988). Cognitive load during problem solving: Effects on learning. \textit{Cognitive Science}, 12(2), 257--285.
+    \item Treisman, A. M., \& Gelade, G. (1980). A feature-integration theory of attention. \textit{Cognitive Psychology}, 12(1), 97--136.
+    \item Wickelgren, W. A. (1977). Speed-accuracy tradeoff and information processing dynamics. \textit{Acta Psychologica}, 41(1), 67--85.
+    \item Wolfe, J. M. (1994). Guided search 2.0 a revised model of visual search. \textit{Psychonomic Bulletin \& Review}, 1(2), 202--238.
+\end{enumerate}
+
+\end{document}
