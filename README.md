@@ -18,7 +18,11 @@ The primary objective of this extensive study is to evaluate the efficacy, valid
 4. **Level Progression Effect:** The gamified application reliably scales difficulty, validating its progressive design by tracking consistent degradation in performance as levels advance.
 
 ## Repository Structure
-- `results/` - Statistical analysis results, plots, and LaTeX source code for the final report.
+- `code/` - Contains all the analysis scripts structured by pipeline steps (data extraction, visualization, outlier analysis, normality testing, various statistical tests, and level analysis).
+- `data/` - Contains the raw and pre-processed datasets collected from the visual search task.
+- `previous_work/` - Contains earlier iterations and previous reports from the project.
+- `problem_statement/` - Contains the original project requirements and assignment details.
+- `results/` - Contains the outputs of the analysis pipeline, including statistical results, generated plots, and the LaTeX source code for the final report.
 - `final_report.pdf` - The fully compiled comprehensive 10-page final report.
 
 ## Team SVG Members
